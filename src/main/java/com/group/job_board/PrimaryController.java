@@ -12,4 +12,7 @@ public class PrimaryController {
     }
     @FXML
     private TextField userName;
+    
+    @FXML
+    private TextField password;
 }

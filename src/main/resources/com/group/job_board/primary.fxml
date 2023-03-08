@@ -50,7 +50,7 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <PasswordField layoutX="117.0" layoutY="151.0" prefHeight="26.0" prefWidth="209.0">
+            <PasswordField fx:id="password" layoutX="117.0" layoutY="151.0" prefHeight="26.0" prefWidth="209.0">
                <effect>
                   <InnerShadow>
                      <color>
