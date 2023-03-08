@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -10,8 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PrimaryController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -41,7 +41,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="userName" alignment="CENTER" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0">
+            <TextField fx:id="userName" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0">
                <effect>
                   <InnerShadow>
                      <color>
@@ -59,10 +59,13 @@
                   </InnerShadow>
                </effect>
             </PasswordField>
-            <Button layoutX="36.0" layoutY="246.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #B0C4DE #B0C4DE;" text="Login">
+            <Button defaultButton="true" layoutX="36.0" layoutY="246.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #B0C4DE #B0C4DE;" text="Sign in" textFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button layoutX="82.0" layoutY="292.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="New User?  Create Account" textFill="#1a62e9" />
          </children>
