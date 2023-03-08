@@ -41,7 +41,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0">
+            <TextField fx:id="userName" alignment="CENTER" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0">
                <effect>
                   <InnerShadow>
                      <color>
