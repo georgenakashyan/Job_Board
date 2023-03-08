@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PrimaryController">
-   <children>
-      <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PrimaryController">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="23.0" prefHeight="66.0" prefWidth="206.0" text="Welcome to Job Board  " textFill="#edeaea">
+               <font>
+                  <Font name="Niramit Regular" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="37.0" prefHeight="27.0" prefWidth="371.0" text="Secure Login" textFill="#413f3f">
+               <font>
+                  <Font name="Apple Braille Outline 6 Dot" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="101.0" text="Username">
+               <font>
+                  <Font name="Apple Braille Outline 6 Dot" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="154.0" text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField alignment="CENTER" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9144737124443054" green="0.9060063362121582" blue="0.9060063362121582" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <PasswordField layoutX="117.0" layoutY="151.0" prefHeight="26.0" prefWidth="209.0">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.8618420958518982" green="0.8498720526695251" blue="0.8498720526695251" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </PasswordField>
+            <Button layoutX="36.0" layoutY="246.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #B0C4DE #B0C4DE;" text="Login">
+               <font>
+                  <Font name="Apple Braille Outline 6 Dot" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="82.0" layoutY="292.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="New User?  Create Account" textFill="#1a62e9" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
