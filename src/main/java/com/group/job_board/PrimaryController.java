@@ -2,17 +2,65 @@ package com.group.job_board;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class PrimaryController {
-
+    
+    // tempory variable to hold the password
+    private String password;
+    @FXML
+    private TextField userName;
+    @FXML
+    private TextField hidePassword;
+    @FXML
+    private TextField showPassword;
+    @FXML
+    private ImageView eyeCloseIcon;
+    @FXML
+    private ImageView eyeOpenIcon;
+    
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
     }
+    // initialize set defult as not showing password
     @FXML
-    private TextField userName;
-    
+    private void initialize() {
+        showPassword.setVisible(false);
+        eyeOpenIcon.setVisible(false);
+    }
+    // Set both hidepassword textfield and showpassword textfield connect together, so they both have same text. 
     @FXML
-    private TextField password;
+    private void HidePasswordOnAction() {
+        password = hidePassword.getText();
+        showPassword.setText(password);
+
+    }
+
+    @FXML
+    private void ShowPasswordOnAction() {
+        password = showPassword.getText();
+        hidePassword.setText(password);
+
+    }
+    //When user click close eye icon the on action will be switch to the other.
+    @FXML
+    private void closeEyeOnAction() {
+        showPassword.setVisible(true);
+        eyeCloseIcon.setVisible(false);
+        eyeOpenIcon.setVisible(true);
+        hidePassword.setVisible(false);
+
+    }
+
+    @FXML
+    private void openEyeOnAction() {
+        showPassword.setVisible(false);
+        eyeCloseIcon.setVisible(true);
+        eyeOpenIcon.setVisible(false);
+        hidePassword.setVisible(true);
+
+    }
 }
