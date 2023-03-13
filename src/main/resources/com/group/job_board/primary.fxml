@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PrimaryController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -72,7 +72,7 @@
             <Button layoutX="82.0" layoutY="292.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="New User?  Create Account" textFill="#1a62e9" />
             <ImageView fx:id="eyeCloseIcon" fitHeight="21.0" fitWidth="20.0" layoutX="332.0" layoutY="153.0" onMouseClicked="#closeEyeOnAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img_105370-1269733117.png" />
+                  <Image url="@../images/DisabledEye.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -80,7 +80,7 @@
             </ImageView>
             <ImageView fx:id="eyeOpenIcon" fitHeight="17.0" fitWidth="19.0" layoutX="332.0" layoutY="158.0" onMouseClicked="#openEyeOnAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@download_43569-3534256133.png" />
+                  <Image url="@../images/EnabledEye.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
