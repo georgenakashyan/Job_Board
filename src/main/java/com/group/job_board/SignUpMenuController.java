@@ -2,6 +2,8 @@ package com.group.job_board;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -9,11 +11,15 @@ public class SignUpMenuController {
     
     private String password;
     @FXML
+    private Label errorMessage;
+    @FXML
     private TextField userName;
     @FXML
     private TextField hidePassword;
     @FXML
     private TextField showPassword;
+    @FXML
+    private TextField reEnterPassword;
     @FXML
     private ImageView eyeCloseIcon;
     @FXML
@@ -31,6 +37,7 @@ public class SignUpMenuController {
     private void initialize() {
         showPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
+        errorMessage.setVisible(false);
     }
     
     /**
@@ -60,6 +67,7 @@ public class SignUpMenuController {
         eyeCloseIcon.setVisible(false);
         eyeOpenIcon.setVisible(true);
         hidePassword.setVisible(false);
+        
     }
 
     /**
@@ -71,5 +79,24 @@ public class SignUpMenuController {
         eyeCloseIcon.setVisible(true);
         eyeOpenIcon.setVisible(false);
         hidePassword.setVisible(true);
+        //reEnterPassword.setVisible(true);
+        
+    }
+    @FXML
+    private boolean passwordMatch(){
+        if(!(reEnterPassword.getText().equals(hidePassword.getText()))){
+            System.out.println("Password did not match");
+            errorMessage.setVisible(true);
+            return false;
+        }
+        if(!(reEnterPassword.getText().equals(showPassword.getText()))){
+            System.out.println("Password did not match");
+            errorMessage.setVisible(true);
+            return false;
+        }
+        else
+            System.out.println("Password match");
+            errorMessage.setVisible(false);
+            return true;
     }
 }
