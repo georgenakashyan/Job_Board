@@ -6,7 +6,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class PrimaryController {
+public class LoginMenuController {
     
     // tempory variable to hold the password
     private String password;
@@ -22,16 +22,22 @@ public class PrimaryController {
     private ImageView eyeOpenIcon;
     
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void switchToSignUpMenu() throws IOException {
+        App.setRoot("SignUpMenu");
     }
-    // initialize set defult as not showing password
+    
+    /**
+     * initialize set default as not showing password.
+     */
     @FXML
     private void initialize() {
         showPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
     }
-    // Set both hidepassword textfield and showpassword textfield connect together, so they both have same text. 
+    
+    /**
+     * Set both hidepassword textfield and showpassword textfield connect together, so they both have same text.
+     */
     @FXML
     private void HidePasswordOnAction() {
         password = hidePassword.getText();
@@ -39,28 +45,35 @@ public class PrimaryController {
 
     }
 
+    /**
+     * 
+     */
     @FXML
     private void ShowPasswordOnAction() {
         password = showPassword.getText();
         hidePassword.setText(password);
 
     }
-    //When user click close eye icon the on action will be switch to the other.
+    
+    /**
+     * When user click close eye icon the on action will be switch to the other.
+     */
     @FXML
     private void closeEyeOnAction() {
         showPassword.setVisible(true);
         eyeCloseIcon.setVisible(false);
         eyeOpenIcon.setVisible(true);
         hidePassword.setVisible(false);
-
     }
 
+    /**
+     * When user clock open eye icon the on action will switch to the other.
+     */
     @FXML
     private void openEyeOnAction() {
         showPassword.setVisible(false);
         eyeCloseIcon.setVisible(true);
         eyeOpenIcon.setVisible(false);
         hidePassword.setVisible(true);
-
     }
 }
