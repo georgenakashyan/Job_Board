@@ -8,8 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class SignUpMenuController {
-    
-    private String password;
+
     @FXML
     private Label errorMessage;
     @FXML
@@ -19,84 +18,80 @@ public class SignUpMenuController {
     @FXML
     private TextField showPassword;
     @FXML
-    private TextField reEnterPassword;
+    private TextField showReEnterPassword;
+    @FXML
+    private TextField hideReEnterPassword;
     @FXML
     private ImageView eyeCloseIcon;
     @FXML
     private ImageView eyeOpenIcon;
 
+    private Boolean passwordShowing;
+
     @FXML
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
     }
-    
+
     /**
      * initialize set default as not showing password.
      */
     @FXML
     private void initialize() {
         showPassword.setVisible(false);
+        showReEnterPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
         errorMessage.setVisible(false);
+        passwordShowing = false;
     }
     
     /**
-     * Set both hidepassword textfield and showpassword textfield connect together, so they both have same text. 
+     * When user clicks either the open or closed eye icon
+     * the password visibility will flip.
      */
     @FXML
-    private void HidePasswordOnAction() {
-        password = hidePassword.getText();
-        showPassword.setText(password);
+    private void eyeOnAction() {
+        if (passwordShowing) {
+            showPassword.setVisible(false);
+            showReEnterPassword.setVisible(false);
+            eyeCloseIcon.setVisible(true);
+            eyeOpenIcon.setVisible(false);
+            hidePassword.setVisible(true);
+            hideReEnterPassword.setVisible(true);
+            String password = showPassword.getText();
+            hidePassword.setText(password);
+            password = showReEnterPassword.getText();
+            hideReEnterPassword.setText(password);
+            passwordShowing = false;
+        } else {
+            showPassword.setVisible(true);
+            showReEnterPassword.setVisible(true);
+            eyeCloseIcon.setVisible(false);
+            eyeOpenIcon.setVisible(true);
+            hidePassword.setVisible(false);
+            hideReEnterPassword.setVisible(false);
+            String password = hidePassword.getText();
+            showPassword.setText(password);
+            password = hideReEnterPassword.getText();
+            showReEnterPassword.setText(password);
+            passwordShowing = true;
+        }
     }
 
-    /**
-     * 
-     */
     @FXML
-    private void ShowPasswordOnAction() {
-        password = showPassword.getText();
-        hidePassword.setText(password);
-    }
-    
-    /**
-     * When user click close eye icon the on action will be switch to the other.
-     */
-    @FXML
-    private void closeEyeOnAction() {
-        showPassword.setVisible(true);
-        eyeCloseIcon.setVisible(false);
-        eyeOpenIcon.setVisible(true);
-        hidePassword.setVisible(false);
-        
-    }
-
-    /**
-     * When user clock open eye icon the on action will switch to the other.
-     */
-    @FXML
-    private void openEyeOnAction() {
-        showPassword.setVisible(false);
-        eyeCloseIcon.setVisible(true);
-        eyeOpenIcon.setVisible(false);
-        hidePassword.setVisible(true);
-        //reEnterPassword.setVisible(true);
-        
-    }
-    @FXML
-    private boolean passwordMatch(){
-        if(!(reEnterPassword.getText().equals(hidePassword.getText()))){
-            System.out.println("Password did not match");
-            errorMessage.setVisible(true);
-            return false;
+    private boolean passwordMatch() {
+        if (passwordShowing) {
+            if (!(showReEnterPassword.getText().equals(showPassword.getText()))) {
+                errorMessage.setVisible(true);
+                return false;
+            }
+        } else {
+            if (!(hideReEnterPassword.getText().equals(hidePassword.getText()))) {
+                errorMessage.setVisible(true);
+                return false;
+            }
         }
-        if(!(reEnterPassword.getText().equals(showPassword.getText()))){
-            System.out.println("Password did not match");
-            errorMessage.setVisible(true);
-            return false;
-        }
-        else
-            System.out.println("Password match");
-            errorMessage.setVisible(false);
-            return true;
+        errorMessage.setVisible(false);
+        return true;
     }
 }

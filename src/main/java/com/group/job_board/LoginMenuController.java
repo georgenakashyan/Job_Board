@@ -42,7 +42,6 @@ public class LoginMenuController {
     private void HidePasswordOnAction() {
         password = hidePassword.getText();
         showPassword.setText(password);
-
     }
 
     /**
@@ -52,7 +51,6 @@ public class LoginMenuController {
     private void ShowPasswordOnAction() {
         password = showPassword.getText();
         hidePassword.setText(password);
-
     }
     
     /**

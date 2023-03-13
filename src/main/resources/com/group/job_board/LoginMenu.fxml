@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.LoginMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.LoginMenuController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -86,7 +86,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <TextField fx:id="showPassword" layoutX="117.0" layoutY="151.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
+            <TextField fx:id="showPassword" layoutX="117.0" layoutY="151.0" onKeyReleased="#ShowPasswordOnAction" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
