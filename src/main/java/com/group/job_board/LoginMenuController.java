@@ -2,7 +2,6 @@ package com.group.job_board;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
