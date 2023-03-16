@@ -113,7 +113,6 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <Label fx:id="failPasswordChecking" layoutX="115.0" layoutY="219.0" text="Password doesn't meet requirement" textFill="#e90e0e" />
          </children>
       </AnchorPane>
    </right>
