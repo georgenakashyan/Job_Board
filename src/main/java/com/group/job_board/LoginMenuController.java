@@ -21,7 +21,11 @@ public class LoginMenuController {
     private ImageView eyeOpenIcon;
     
     @FXML
-    private void switchToSignUpMenu() throws IOException {
+    private void switchJobPostingMenu() throws IOException {
+        App.setRoot("JobPostingMenu");
+    }
+    @FXML
+    private void switchToSignUpMenu() throws IOException{
         App.setRoot("SignUpMenu");
     }
     
@@ -35,7 +39,7 @@ public class LoginMenuController {
     }
     
     /**
-     * Set both hidepassword textfield and showpassword textfield connect together, so they both have same text.
+     * Set both hidepassword textField and showpassword textField connect together, so they both have same text.
      */
     @FXML
     private void HidePasswordOnAction() {

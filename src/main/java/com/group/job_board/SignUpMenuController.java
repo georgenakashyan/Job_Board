@@ -1,7 +1,10 @@
 package com.group.job_board;
 
 import java.io.IOException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -26,10 +29,18 @@ public class SignUpMenuController {
     private ImageView eyeOpenIcon;
 
     private Boolean passwordShowing;
+    @FXML
+    private ChoiceBox UserIdentityChoiceBox;
+    
+    ObservableList<String> UserIdentity = FXCollections.observableArrayList("Poster","Applicant");
 
     @FXML
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
+    }
+    @FXML
+    private void SignUpButtonHandler(){
+        
     }
 
     /**
@@ -42,6 +53,9 @@ public class SignUpMenuController {
         eyeOpenIcon.setVisible(false);
         errorMessage.setVisible(false);
         passwordShowing = false;
+        //initialize choicebox
+        UserIdentityChoiceBox.setItems(UserIdentity);
+        
     }
     
     /**
