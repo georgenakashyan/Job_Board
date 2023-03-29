@@ -1,6 +1,14 @@
 package com.group.job_board;
 
+
 import java.io.IOException;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,8 +47,24 @@ public class SignUpMenuController {
         App.setRoot("LoginMenu");
     }
     @FXML
-    private void SignUpButtonHandler(){
-        
+    private void SignUpButtonHandler() throws ClassNotFoundException, SQLException{
+        Connection connection;
+        Statement statement;
+        ResultSet resultSet;
+
+        // Database variables
+        // Step 1: Loading or registering JDBC driver class 
+        Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
+        // Step 2: Opening database connection
+        String msAccDB = "codeangels.accdb";
+        String dbURL = "jdbc:ucanaccess://" + msAccDB; 
+        // Step 3: Create and get connection using DriverManager class
+        connection = DriverManager.getConnection(dbURL); 
+        // Step 4: Creating JDBC Statement 
+        // It is scrollable so we can use next() and last() & It is updatable so we can enter new records
+        statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+        ResultSet.CONCUR_UPDATABLE);
+        System.out.println("Database Connected!");
     }
 
     /**
