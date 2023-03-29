@@ -49,6 +49,9 @@ public class SignUpMenuController {
     @FXML
     private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
         connectDB();
+
+        
+
     }
 
     public void connectDB() throws ClassNotFoundException, SQLException {
