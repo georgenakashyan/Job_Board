@@ -47,7 +47,11 @@ public class SignUpMenuController {
         App.setRoot("LoginMenu");
     }
     @FXML
-    private void SignUpButtonHandler() throws ClassNotFoundException, SQLException{
+    private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
+        connectDB();
+    }
+
+    public void connectDB() throws ClassNotFoundException, SQLException {
         Connection connection;
         Statement statement;
         ResultSet resultSet;
