@@ -1,7 +1,18 @@
 package com.group.job_board;
 
+
 import java.io.IOException;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -26,10 +37,41 @@ public class SignUpMenuController {
     private ImageView eyeOpenIcon;
 
     private Boolean passwordShowing;
+    @FXML
+    private ChoiceBox UserIdentityChoiceBox;
+    
+    ObservableList<String> UserIdentity = FXCollections.observableArrayList("Poster","Applicant");
 
     @FXML
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
+    }
+    @FXML
+    private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
+        connectDB();
+
+        
+
+    }
+
+    public void connectDB() throws ClassNotFoundException, SQLException {
+        Connection connection;
+        Statement statement;
+        ResultSet resultSet;
+
+        // Database variables
+        // Step 1: Loading or registering JDBC driver class 
+        Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
+        // Step 2: Opening database connection
+        String msAccDB = "codeangels.accdb";
+        String dbURL = "jdbc:ucanaccess://" + msAccDB; 
+        // Step 3: Create and get connection using DriverManager class
+        connection = DriverManager.getConnection(dbURL); 
+        // Step 4: Creating JDBC Statement 
+        // It is scrollable so we can use next() and last() & It is updatable so we can enter new records
+        statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+        ResultSet.CONCUR_UPDATABLE);
+        System.out.println("Database Connected!");
     }
 
     /**
@@ -42,6 +84,9 @@ public class SignUpMenuController {
         eyeOpenIcon.setVisible(false);
         errorMessage.setVisible(false);
         passwordShowing = false;
+        //initialize choicebox
+        UserIdentityChoiceBox.setItems(UserIdentity);
+        
     }
     
     /**

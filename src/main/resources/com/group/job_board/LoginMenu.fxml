@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.LoginMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.LoginMenuController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -61,7 +61,7 @@
                   </InnerShadow>
                </effect>
             </PasswordField>
-            <Button defaultButton="true" layoutX="36.0" layoutY="246.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #0066ff#0066ff #0066ff#0066ff;" text="Sign In" textFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <Button defaultButton="true" layoutX="36.0" layoutY="246.0" mnemonicParsing="false" onMouseClicked="#switchJobPostingMenu" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #0066ff#0066ff #0066ff#0066ff;" text="Sign In" textFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="14.0" />
                </font>
