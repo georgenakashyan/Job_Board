@@ -18,7 +18,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class SignUpMenuController {
-    
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField phoneNumber;
     @FXML
     private Label errorMessage;
     @FXML
