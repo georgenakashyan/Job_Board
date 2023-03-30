@@ -29,8 +29,8 @@ public class LoginMenuController {
     private ImageView eyeOpenIcon;
 
     //TESTING
-    Vector<String> applicants; 
-    Vector<String> newApplicants; 
+    Vector<Applicant> applicants; 
+    Vector<Applicant> newApplicants; 
     Connection connection;
     Statement statement;
     ResultSet resultSet;
@@ -66,6 +66,7 @@ public class LoginMenuController {
     private void loadApplicants() {
         //create the variables for each field in the file
         String id = "";
+        String username = "";
         String first = "";
         String last = "";
         String phone ="";
@@ -84,20 +85,16 @@ public class LoginMenuController {
             {   
                 totalrows = resultSet.getRow();
                 id = resultSet.getString("ID");
+                username = resultSet.getString("username");
                 first = resultSet.getString("firstName");
                 last = resultSet.getString("lastName");
                 phone = resultSet.getString("phone");
                 email = resultSet.getString("email");
                 address = resultSet.getString("address");
                 password = resultSet.getString("password");
-                applicants.add(id);
+                applicants.add(new Applicant(Integer.parseInt(id), first, last, username, password));
                 index++;
-
-                //to test Angel load
-                //System.out.println("ID: " + id + "\nFirst: " + first + "\nLast: " + last + "" + "\nPhone: " + phone + "\nemail: " + email + "\ncounty: " + county
-                //+ "\npassword: " + password + "\nsecAns: " + secAns + "\njoinDate: " + joinDate);
             }//end of loading to array
-            System.out.println(applicants.get(0));
         }
         catch (SQLException e) {
             System.out.println(Arrays.toString(e.getStackTrace()));
@@ -108,18 +105,17 @@ public class LoginMenuController {
     // FIX: Make sure that the username and password match with the same user
     @FXML
     private void switchJobPostingMenu() throws IOException {
-        applicants = new Vector<String>();
+        applicants = new Vector<Applicant>();
         loadApplicants();
 
         for (int i = 0; i < applicants.size(); i++) {
-            if (userName.getText().equals(applicants.get(i))) {
+            if (userName.getText().equals(applicants.get(i).getUsername()) && showPassword.getText().equals(applicants.get(i).getPassword())) {
                 System.out.println("Login successful.");
                 App.setRoot("JobPostingMenu");
             }
             else {
                 //Display error on screen (George will take care of this)
                 System.out.println("Login unsuccessful.");
-                App.setRoot("JobPostingMenu");
             }
         }
     }
@@ -129,10 +125,6 @@ public class LoginMenuController {
         App.setRoot("SignUpMenu");
     }
     
-    private void exitSystem() {
-        System.exit(0);  
-    }
-
     /**
      * Set both hidepassword textField and showpassword textField connect together, so they both have same text.
      */
