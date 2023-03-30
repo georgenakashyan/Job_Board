@@ -39,6 +39,10 @@ public class SignUpMenuController {
     private Boolean passwordShowing;
     @FXML
     private ChoiceBox UserIdentityChoiceBox;
+
+    Connection connection;
+    Statement statement;
+    ResultSet resultSet;
     
     ObservableList<String> UserIdentity = FXCollections.observableArrayList("Poster","Applicant");
 
@@ -50,17 +54,42 @@ public class SignUpMenuController {
     private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
         connectDB();
 
-        
+        String id = "";
+        String username = "";
+        String first = "";
+        String last = "";
+        String phone ="";
+        String email = "";
+        String address = "";
+        String password = "";
+        boolean active = true;
 
+        Applicant newApp = new Applicant(userName.getText(), showPassword.getText());
+
+        username = newApp.getUsername();
+        password = newApp.getPassword();
+
+        //TEMPORARY DUMMY VALUES BELOW
+        id = "2";
+        first = "John";
+        last = "Doe";
+        phone = "6316432718";
+        email = "johndoe@gmail.com";
+        address = "6 Apple Lane";
+
+        statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
+            + "'"+ id +"',"
+            + "'"+ first +"', "
+            + "'"+ last +"', "
+            + "'"+ email +"', "
+            + "'"+ phone +"', "
+            + "'"+ address +"', "
+            + "'"+ password +"', "
+            + "'"+ active +"', "
+            + "'"+ username +"')");				
     }
 
-    public void connectDB() throws ClassNotFoundException, SQLException {
-        Connection connection;
-        Statement statement;
-        ResultSet resultSet;
-
-        // Database variables
-        // Step 1: Loading or registering JDBC driver class 
+    public void connectDB() throws ClassNotFoundException, SQLException { 
         Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
         // Step 2: Opening database connection
         String msAccDB = "codeangels.accdb";

@@ -28,12 +28,12 @@ public class LoginMenuController {
     @FXML
     private ImageView eyeOpenIcon;
 
-    //TESTING
     Vector<Applicant> applicants; 
     Vector<Applicant> newApplicants; 
     Connection connection;
     Statement statement;
     ResultSet resultSet;
+    int numAtt = 0;
     
     @FXML
     private void initialize() {
@@ -102,21 +102,24 @@ public class LoginMenuController {
     }
     
     //Login button
-    // FIX: Make sure that the username and password match with the same user
     @FXML
     private void switchJobPostingMenu() throws IOException {
         applicants = new Vector<Applicant>();
         loadApplicants();
+        boolean userLoggedIn = false;
+        numAtt++;
 
         for (int i = 0; i < applicants.size(); i++) {
             if (userName.getText().equals(applicants.get(i).getUsername()) && showPassword.getText().equals(applicants.get(i).getPassword())) {
                 System.out.println("Login successful.");
+                userLoggedIn = true;
                 App.setRoot("JobPostingMenu");
             }
-            else {
-                //Display error on screen (George will take care of this)
-                System.out.println("Login unsuccessful.");
-            }
+        }
+        if(userLoggedIn == false) {
+            System.out.println("Login Unsuccessful");
+            if(numAtt > 3)
+                System.out.println("Attempt limit reached!"); //Possibly do more, maybe a better error message?
         }
     }
 
