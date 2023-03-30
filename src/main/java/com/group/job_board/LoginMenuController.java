@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Vector;
 
 import javafx.fxml.FXML;
@@ -34,23 +35,35 @@ public class LoginMenuController {
     Statement statement;
     ResultSet resultSet;
     
-    public void connectDB() throws ClassNotFoundException, SQLException {
-        // Database variables
-        // Step 1: Loading or registering JDBC driver class 
-        Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
-        // Step 2: Opening database connection
-        String msAccDB = "codeangels.accdb";
-        String dbURL = "jdbc:ucanaccess://" + msAccDB; 
-        // Step 3: Create and get connection using DriverManager class
-        connection = DriverManager.getConnection(dbURL); 
-        // Step 4: Creating JDBC Statement 
-        // It is scrollable so we can use next() and last() & It is updatable so we can enter new records
-        statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-        ResultSet.CONCUR_UPDATABLE);
-        System.out.println("Database Connected!");
+    @FXML
+    private void initialize() {
+        showPassword.setVisible(false);
+        eyeOpenIcon.setVisible(false);
+        connectDB();
+    }
+    
+    private void connectDB() {
+        try {
+            // Database variables
+            // Step 1: Loading or registering JDBC driver class 
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
+            // Step 2: Opening database connection
+            String msAccDB = "codeangels.accdb";
+            String dbURL = "jdbc:ucanaccess://" + msAccDB; 
+            // Step 3: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL); 
+            // Step 4: Creating JDBC Statement 
+            // It is scrollable so we can use next() and last() & It is updatable so we can enter new records
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+            ResultSet.CONCUR_UPDATABLE);
+            System.out.println("Database Connected!");
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
     }
 
-    void loadApplicants() throws SQLException {
+    private void loadApplicants() {
         //create the variables for each field in the file
         String id = "";
         String first = "";
@@ -61,47 +74,52 @@ public class LoginMenuController {
         String password = "";
         int totalrows = 0, index = 0;
         
-        //Get the total rows in the table to loop through the result set
-        resultSet = statement.executeQuery("SELECT * FROM APPLICANT"); 
-        //resultSet.first();
-         
-        totalrows = resultSet.getRow();
-        while (resultSet.next()) //tests for the eof
-        {   
+        try {
+            //Get the total rows in the table to loop through the result set
+            resultSet = statement.executeQuery("SELECT * FROM APPLICANT"); 
+            //resultSet.first();
+
             totalrows = resultSet.getRow();
-            id = resultSet.getString("ID");
-            first = resultSet.getString("firstName");
-            last = resultSet.getString("lastName");
-            phone = resultSet.getString("phone");
-            email = resultSet.getString("email");
-            address = resultSet.getString("address");
-            password = resultSet.getString("password");
-            applicants.add(id);
-            index++;
-            
-            //to test Angel load
-            //System.out.println("ID: " + id + "\nFirst: " + first + "\nLast: " + last + "" + "\nPhone: " + phone + "\nemail: " + email + "\ncounty: " + county
-            //+ "\npassword: " + password + "\nsecAns: " + secAns + "\njoinDate: " + joinDate);
-        }//end of loading to array
-        System.out.println(applicants.get(0));
+            while (resultSet.next()) //tests for the eof
+            {   
+                totalrows = resultSet.getRow();
+                id = resultSet.getString("ID");
+                first = resultSet.getString("firstName");
+                last = resultSet.getString("lastName");
+                phone = resultSet.getString("phone");
+                email = resultSet.getString("email");
+                address = resultSet.getString("address");
+                password = resultSet.getString("password");
+                applicants.add(id);
+                index++;
+
+                //to test Angel load
+                //System.out.println("ID: " + id + "\nFirst: " + first + "\nLast: " + last + "" + "\nPhone: " + phone + "\nemail: " + email + "\ncounty: " + county
+                //+ "\npassword: " + password + "\nsecAns: " + secAns + "\njoinDate: " + joinDate);
+            }//end of loading to array
+            System.out.println(applicants.get(0));
+        }
+        catch (SQLException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
     }
-
-
-
+    
     //Login button
+    // FIX: Make sure that the username and password match with the same user
     @FXML
-    private void switchJobPostingMenu() throws IOException, ClassNotFoundException, SQLException {
-        App.setRoot("JobPostingMenu");
-        connectDB();
+    private void switchJobPostingMenu() throws IOException {
         applicants = new Vector<String>();
         loadApplicants();
 
         for (int i = 0; i < applicants.size(); i++) {
             if (userName.getText().equals(applicants.get(i))) {
                 System.out.println("Login successful.");
+                App.setRoot("JobPostingMenu");
             }
             else {
-                exitSystem();
+                //Display error on screen (George will take care of this)
+                System.out.println("Login unsuccessful.");
+                App.setRoot("JobPostingMenu");
             }
         }
     }
@@ -111,19 +129,10 @@ public class LoginMenuController {
         App.setRoot("SignUpMenu");
     }
     
-    public void exitSystem() {
+    private void exitSystem() {
         System.exit(0);  
     }
 
-    /**
-     * initialize set default as not showing password.
-     */
-    @FXML
-    private void initialize() {
-        showPassword.setVisible(false);
-        eyeOpenIcon.setVisible(false);
-    }
-    
     /**
      * Set both hidepassword textField and showpassword textField connect together, so they both have same text.
      */
