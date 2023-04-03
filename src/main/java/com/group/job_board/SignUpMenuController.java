@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -97,6 +99,11 @@ public class SignUpMenuController {
             
             //FOR TESTING PURPOSES ONLY
             System.out.println("Inserted successfully");
+        try {
+            switchToLogInMenu();
+        } catch (IOException ex) {
+            Logger.getLogger(SignUpMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void connectDB() throws ClassNotFoundException, SQLException { 
