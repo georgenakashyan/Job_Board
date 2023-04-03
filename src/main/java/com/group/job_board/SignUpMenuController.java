@@ -75,6 +75,7 @@ public class SignUpMenuController {
         String password = "";
         boolean active = true;
 
+        // Fix this: Applicant ID always set to 9
         Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), showPassword.getText());
 
         id = String.valueOf(newApp.getUserID());
@@ -97,13 +98,35 @@ public class SignUpMenuController {
             + "'"+ active +"', "
             + "'"+ username +"')");
             
-            //FOR TESTING PURPOSES ONLY
-            System.out.println("Inserted successfully");
+        //FOR TESTING PURPOSES ONLY
+        System.out.println("Inserted successfully");
+        
+        //After successfully creating account, automatically log them in.
         try {
             switchToLogInMenu();
         } catch (IOException ex) {
             Logger.getLogger(SignUpMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private String checkIfValuesBlank() {
+        String error = "";
+        if (firstName.getText().equals(""))
+            return "First Name was left blank";
+        if (lastName.getText().equals(""))
+            return "Last Name was left blank";
+        if (address.getText().equals(""))
+            return "Address was left blank";
+        if (email.getText().equals(""))
+            return "Email was left blank";
+        if (phoneNumber.getText().equals(""))
+            return "Phone Number was left blank";
+        if (userName.getText().equals(""))
+            return "Username was left blank";
+        if (!passwordMatch())
+            return "Passwords don't match";
+        //Sets error code to be blank.
+        return "";
     }
 
     public void connectDB() throws ClassNotFoundException, SQLException { 
@@ -128,9 +151,8 @@ public class SignUpMenuController {
         showPassword.setVisible(false);
         showReEnterPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
-        errorMessage.setVisible(false);
+        errorMessage.setText("");
         passwordShowing = false;
-        //initialize choicebox
         UserIdentityChoiceBox.setItems(UserIdentity);
         
     }
@@ -181,7 +203,6 @@ public class SignUpMenuController {
                 return false;
             }
         }
-        errorMessage.setVisible(false);
         return true;
     }
 }
