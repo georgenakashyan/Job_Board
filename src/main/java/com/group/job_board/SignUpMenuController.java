@@ -63,6 +63,11 @@ public class SignUpMenuController {
     }
     @FXML
     private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
+        String errorCode = checkValueProblems();
+        if (!errorCode.isBlank()) {
+            errorMessage.setText(errorCode);
+            return;
+        }
         connectDB();
 
         String id = "";
@@ -75,6 +80,7 @@ public class SignUpMenuController {
         String password = "";
         boolean active = true;
 
+        // I assume this is testing code, putting this just in-case
         // Fix this: Applicant ID always set to 9
         Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), showPassword.getText());
 
@@ -86,6 +92,8 @@ public class SignUpMenuController {
         phone = phoneNumber.getText();
         appEmail = email.getText();
         appAddress = address.getText();
+        
+        
 
         statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
             + "'"+ id +"',"
@@ -109,8 +117,7 @@ public class SignUpMenuController {
         }
     }
     
-    private String checkIfValuesBlank() {
-        String error = "";
+    private String checkValueProblems() {
         if (firstName.getText().equals(""))
             return "First Name was left blank";
         if (lastName.getText().equals(""))
@@ -194,12 +201,10 @@ public class SignUpMenuController {
     private boolean passwordMatch() {
         if (passwordShowing) {
             if (!(showReEnterPassword.getText().equals(showPassword.getText()))) {
-                errorMessage.setVisible(true);
                 return false;
             }
         } else {
             if (!(hideReEnterPassword.getText().equals(hidePassword.getText()))) {
-                errorMessage.setVisible(true);
                 return false;
             }
         }
