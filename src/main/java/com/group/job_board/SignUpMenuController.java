@@ -68,23 +68,21 @@ public class SignUpMenuController {
         String first = "";
         String last = "";
         String phone ="";
-        String email = "";
-        String address = "";
+        String appEmail = "";
+        String appAddress = "";
         String password = "";
         boolean active = true;
 
-        Applicant newApp = new Applicant(userName.getText(), showPassword.getText());
+        Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), showPassword.getText());
 
+        id = String.valueOf(newApp.getUserID());
+        first = newApp.getFirstName();
+        last = newApp.getLastName();
         username = newApp.getUsername();
         password = newApp.getPassword();
-
-        //TEMPORARY DUMMY VALUES BELOW
-        id = "2";
-        first = "John";
-        last = "Doe";
-        phone = "6316432718";
-        email = "johndoe@gmail.com";
-        address = "6 Apple Lane";
+        phone = phoneNumber.getText();
+        appEmail = email.getText();
+        appAddress = address.getText();
 
         statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
             + "'"+ id +"',"
@@ -95,7 +93,10 @@ public class SignUpMenuController {
             + "'"+ address +"', "
             + "'"+ password +"', "
             + "'"+ active +"', "
-            + "'"+ username +"')");				
+            + "'"+ username +"')");
+            
+            //FOR TESTING PURPOSES ONLY
+            System.out.println("Inserted successfully");
     }
 
     public void connectDB() throws ClassNotFoundException, SQLException { 
