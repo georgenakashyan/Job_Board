@@ -130,6 +130,8 @@ public class SignUpMenuController {
             return "Phone Number was left blank";
         if (userName.getText().equals(""))
             return "Username was left blank";
+        if (passwordBlank())
+            return "Password was left blank";
         if (!passwordMatch())
             return "Passwords don't match";
         //Sets error code to be blank.
@@ -199,15 +201,26 @@ public class SignUpMenuController {
 
     @FXML
     private boolean passwordMatch() {
+        String p1, p2;
         if (passwordShowing) {
-            if (!(showReEnterPassword.getText().equals(showPassword.getText()))) {
-                return false;
-            }
+            p1 = showReEnterPassword.getText();
+            p2 = showPassword.getText();
         } else {
-            if (!(hideReEnterPassword.getText().equals(hidePassword.getText()))) {
-                return false;
-            }
+            p1 = hideReEnterPassword.getText();
+            p2 = hidePassword.getText();
         }
-        return true;
+        return (p1.equals(p2));
+    }
+    
+    private boolean passwordBlank() {
+        String p1, p2;
+        if (passwordShowing) {
+            p1 = showReEnterPassword.getText();
+            p2 = showPassword.getText();
+        } else {
+            p1 = hideReEnterPassword.getText();
+            p2 = hidePassword.getText();
+        }
+        return (p1.isBlank() || p2.isBlank());
     }
 }
