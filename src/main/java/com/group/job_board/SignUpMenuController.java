@@ -80,9 +80,15 @@ public class SignUpMenuController {
         String password = "";
         boolean active = true;
 
+        //Gets password from either shown or hidden text fields
+        if(showPassword.getText().equals(""))
+            password = hidePassword.getText();
+        else
+            password = showPassword.getText();
+
         // I assume this is testing code, putting this just in-case
         // Fix this: Applicant ID always set to 9
-        Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), showPassword.getText());
+        Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), password);
 
         id = String.valueOf(newApp.getUserID());
         first = newApp.getFirstName();
