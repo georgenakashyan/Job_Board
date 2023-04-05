@@ -95,14 +95,13 @@ public class SignUpMenuController {
         
            
         //FOR TESTING PURPOSES ONLY
-        System.out.println("Inserted successfully");
         statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
             + "'"+ id +"',"
             + "'"+ first +"', "
             + "'"+ last +"', "
-            + "'"+ email +"', "
+            + "'"+ appEmail +"', "
             + "'"+ phone +"', "
-            + "'"+ address +"', "
+            + "'"+ appAddress +"', "
             + "'"+ password +"', "
             + "'"+ active +"', "
             + "'"+ username +"')");
