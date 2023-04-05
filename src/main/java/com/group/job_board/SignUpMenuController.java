@@ -60,7 +60,7 @@ public class SignUpMenuController {
         App.setRoot("LoginMenu");
     }
     @FXML
-    private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
+    private void SignUpButtonHandler() throws ClassNotFoundException, SQLException, IOException {
         connectDB();
 
         String id = "";
@@ -84,19 +84,36 @@ public class SignUpMenuController {
         appEmail = email.getText();
         appAddress = address.getText();
 
-        statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
-            + "'"+ id +"',"
-            + "'"+ first +"', "
-            + "'"+ last +"', "
-            + "'"+ email +"', "
-            + "'"+ phone +"', "
-            + "'"+ address +"', "
-            + "'"+ password +"', "
-            + "'"+ active +"', "
-            + "'"+ username +"')");
-            
-            //FOR TESTING PURPOSES ONLY
-            System.out.println("Inserted successfully");
+        if(UserIdentityChoiceBox.getValue() == "Applicant") {
+            statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
+                + "'"+ id +"',"
+                + "'"+ first +"', "
+                + "'"+ last +"', "
+                + "'"+ appEmail +"', "
+                + "'"+ phone +"', "
+                + "'"+ appAddress +"', "
+                + "'"+ password +"', "
+                + "'"+ active +"', "
+                + "'"+ username +"')");
+                App.setRoot("JobPostingMenu");
+        } else if(UserIdentityChoiceBox.getValue() == "Poster") {
+            statement.executeUpdate("INSERT INTO EMPLOYER VALUES ("
+                + "'"+ id +"',"
+                + "'"+ first +"', "
+                + "'"+ last +"', "
+                + "'"+ email +"', "
+                + "'"+ phone +"', "
+                + "'"+ address +"', "
+                + "'"+ password +"', "
+                + "'"+ active +"', "
+                + "'"+ username +"')");
+                App.setRoot("JobPostingMenu");
+        } else {
+            System.out.println("Please select a user type");
+        }
+           
+        //FOR TESTING PURPOSES ONLY
+        System.out.println("Inserted successfully");
     }
 
     public void connectDB() throws ClassNotFoundException, SQLException { 
