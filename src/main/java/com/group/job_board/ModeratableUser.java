@@ -10,14 +10,26 @@ package com.group.job_board;
  */
 public class ModeratableUser extends User {
 
+    protected String address;
+
     public ModeratableUser() {
     }
 
-    public ModeratableUser(int userID, String username, String password) {
-        super(userID, username, password);
+    public ModeratableUser(int userID, String email, int phoneNumber, String address, String password) {
+        super(userID, email, phoneNumber, password);
+
+        this.address = address;
     }
 
-    // method prototypes
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    // ToDO write code for login() and logout()
     public void login() {
     }
 
