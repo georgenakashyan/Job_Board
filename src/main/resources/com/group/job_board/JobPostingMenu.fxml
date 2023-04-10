@@ -65,7 +65,7 @@
                               <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="29.0" prefWidth="87.0" text="Setting" textFill="#ede8e8">
+                        <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
                            <font>
                               <Font size="18.0" />
                            </font>
