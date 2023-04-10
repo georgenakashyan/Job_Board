@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -82,126 +82,224 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="668.0" prefWidth="427.0" style="-fx-background-color: #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="594.0" prefWidth="406.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="11.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="101.0" text="First name">
+                              <Label prefHeight="30.0" prefWidth="550.0" text="First Name">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="101.0" text="Last name">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="40.0" prefHeight="30.0" prefWidth="101.0" text="Address">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="70.0" prefHeight="30.0" prefWidth="101.0" text="Email">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="100.0" prefHeight="30.0" prefWidth="101.0" text="Phone">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="130.0" prefHeight="30.0" prefWidth="101.0" text="Username">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="160.0" prefHeight="30.0" prefWidth="101.0" text="Account Type">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="250.0" prefHeight="30.0" prefWidth="101.0" text="Password">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label />
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
-                        </VBox>
-                        <VBox prefHeight="582.0" prefWidth="268.0" spacing="10.0">
-                           <children>
-                              <TextField editable="false">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="10.0">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="36.0">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="62.0">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="88.0">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="114.0">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="140.0">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField editable="false" layoutX="10.0" layoutY="166.0" promptText="Old password">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField layoutX="10.0" layoutY="302.0" promptText="New password" />
-                              <Button mnemonicParsing="false" text="Change password" />
-                           </children>
-                        </VBox>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
                      </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Last Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Address">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Email Address">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Phone Number">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Username">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Account Type">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Password">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
+                                 <children>
+                                    <TextField editable="false" prefHeight="26.0" prefWidth="295.0" promptText="Old Password" />
+                                    <TextField editable="false" prefHeight="26.0" prefWidth="295.0" promptText="New Password" />
+                                    <Button mnemonicParsing="false" text="Change password" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
                   </HBox>
                   <HBox prefHeight="83.0" prefWidth="406.0" spacing="10.0">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <children>
-                        <VBox prefHeight="71.0" prefWidth="668.0" spacing="10.0">
+                        <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
                            <children>
                               <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="234.0" text="Sign out" />
                               <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="233.0" text="Delete Account" />
                            </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </VBox>
                      </children>
                   </HBox>
                </children>
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
                <BorderPane.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets />
                </BorderPane.margin>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
             </VBox>
          </center>
       </BorderPane>
