@@ -21,12 +21,14 @@ import javafx.scene.control.ListView;
 public class JobPostingMenuController {
     @FXML
     ListView listviewJobs;
-    ObservableList<String> items = listviewJobs.getItems();
-    ArrayList<Position> alJobs = new ArrayList();
+    ObservableList<String> items;
+    ArrayList<Position> alJobs;
 
     
     @FXML
     public void initialize(){
+        items = listviewJobs.getItems();
+        alJobs = new ArrayList();
         handleLoadFromDB();
     }
     /**

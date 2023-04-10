@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -137,7 +137,7 @@
                         <Insets />
                      </VBox.margin>
                      <content>
-                        <ListView prefHeight="800.0" prefWidth="390.0" />
+                        <ListView fx:id="listviewJobs" prefHeight="800.0" prefWidth="390.0" />
                      </content>
                   </ScrollPane>
                </children>
