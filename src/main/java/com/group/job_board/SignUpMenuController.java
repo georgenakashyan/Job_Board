@@ -70,7 +70,7 @@ public class SignUpMenuController {
         }
         connectDB();
 
-        String id = "";
+        int id;
         String companyName = "";
         String username = "";
         String first = "";
@@ -94,7 +94,8 @@ public class SignUpMenuController {
             // Fix this: Applicant ID always set to 9
             Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), password);
 
-            id = String.valueOf(newApp.getUserID());
+            //id = String.valueOf(newApp.getUserID());
+            id = newApp.getUserID();
             first = newApp.getFirstName();
             last = newApp.getLastName();
             username = newApp.getUsername();
@@ -121,7 +122,8 @@ public class SignUpMenuController {
             //TEMPORARILY has company name set to a combo of first and last name
             Poster newPoster = new Poster(9, (firstName.getText() + lastName.getText()), userName.getText(), password);
 
-            id = String.valueOf(newPoster.getUserID());
+            //id = String.valueOf(newPoster.getUserID());
+            id = newPoster.getUserID();
             companyName = newPoster.getCompanyName();
             username = newPoster.getUsername();
             password = newPoster.getPassword();
