@@ -29,7 +29,7 @@ public class LoginMenuController {
     private ImageView eyeOpenIcon;
 
     Vector<Applicant> applicants; 
-    Vector<Applicant> newApplicants; 
+    Vector<Poster> posters;
     Connection connection;
     Statement statement;
     ResultSet resultSet;
@@ -93,6 +93,42 @@ public class LoginMenuController {
                 address = resultSet.getString("address");
                 password = resultSet.getString("password");
                 applicants.add(new Applicant(Integer.parseInt(id), first, last, username, password));
+                index++;
+            }//end of loading to array
+        }
+        catch (SQLException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
+    }
+
+    private void loadPosters() {
+        //create the variables for each field in the file
+        String id = "";
+        String companyName = "";
+        String username = "";
+        String phone ="";
+        String email = "";
+        String address = "";
+        String password = "";
+        int totalrows = 0, index = 0;
+        
+        try {
+            //Get the total rows in the table to loop through the result set
+            resultSet = statement.executeQuery("SELECT * FROM POSTER"); 
+            //resultSet.first();
+
+            totalrows = resultSet.getRow();
+            while (resultSet.next()) //tests for the eof
+            {   
+                totalrows = resultSet.getRow();
+                id = resultSet.getString("ID");
+                companyName = resultSet.getString("companyName");
+                username = resultSet.getString("username");
+                phone = resultSet.getString("phone");
+                email = resultSet.getString("email");
+                address = resultSet.getString("address");
+                password = resultSet.getString("password");
+                posters.add(new Poster(Integer.parseInt(id), companyName, username, password));
                 index++;
             }//end of loading to array
         }
