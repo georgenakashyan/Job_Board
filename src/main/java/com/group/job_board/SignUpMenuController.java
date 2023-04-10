@@ -71,12 +71,15 @@ public class SignUpMenuController {
         connectDB();
 
         String id = "";
+        String companyName = "";
         String username = "";
         String first = "";
         String last = "";
         String phone ="";
         String appEmail = "";
         String appAddress = "";
+        String posterEmail = "";
+        String posterAddress = "";
         String password = "";
         boolean active = true;
 
@@ -86,34 +89,63 @@ public class SignUpMenuController {
         else
             password = showPassword.getText();
 
-        // I assume this is testing code, putting this just in-case
-        // Fix this: Applicant ID always set to 9
-        Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), password);
+        if(UserIdentityChoiceBox.getValue().equals("Applicant")) {
+            // I assume this is testing code, putting this just in-case
+            // Fix this: Applicant ID always set to 9
+            Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), password);
 
-        id = String.valueOf(newApp.getUserID());
-        first = newApp.getFirstName();
-        last = newApp.getLastName();
-        username = newApp.getUsername();
-        password = newApp.getPassword();
-        phone = phoneNumber.getText();
-        appEmail = email.getText();
-        appAddress = address.getText();
-        
-           
-        //FOR TESTING PURPOSES ONLY
-        statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
-            + "'"+ id +"',"
-            + "'"+ first +"', "
-            + "'"+ last +"', "
-            + "'"+ appEmail +"', "
-            + "'"+ phone +"', "
-            + "'"+ appAddress +"', "
-            + "'"+ password +"', "
-            + "'"+ active +"', "
-            + "'"+ username +"')");
+            id = String.valueOf(newApp.getUserID());
+            first = newApp.getFirstName();
+            last = newApp.getLastName();
+            username = newApp.getUsername();
+            password = newApp.getPassword();
+            phone = phoneNumber.getText();
+            appEmail = email.getText();
+            appAddress = address.getText();
             
-        //FOR TESTING PURPOSES ONLY
-        System.out.println("Inserted successfully");
+            //FOR TESTING PURPOSES ONLY
+            statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
+                + "'"+ id +"',"
+                + "'"+ first +"', "
+                + "'"+ last +"', "
+                + "'"+ appEmail +"', "
+                + "'"+ phone +"', "
+                + "'"+ appAddress +"', "
+                + "'"+ password +"', "
+                + "'"+ active +"', "
+                + "'"+ username +"')");
+                
+            //FOR TESTING PURPOSES ONLY
+            System.out.println("Inserted successfully");
+        } else if(UserIdentityChoiceBox.getValue().equals("Poster")) {
+            //TEMPORARILY has company name set to a combo of first and last name
+            Poster newPoster = new Poster(9, (firstName.getText() + lastName.getText()), userName.getText(), password);
+
+            id = String.valueOf(newPoster.getUserID());
+            companyName = newPoster.getCompanyName();
+            username = newPoster.getUsername();
+            password = newPoster.getPassword();
+            phone = phoneNumber.getText();
+            posterEmail = email.getText();
+            posterAddress = address.getText();
+            
+            //FOR TESTING PURPOSES ONLY
+            statement.executeUpdate("INSERT INTO POSTER VALUES ("
+                + "'"+ id +"',"
+                + "'"+ companyName +"', "
+                + "'"+ posterEmail +"', "
+                + "'"+ phone +"', "
+                + "'"+ posterAddress +"', "
+                + "'"+ password +"', "
+                + "'"+ active +"', "
+                + "'"+ username +"')");
+                
+            //FOR TESTING PURPOSES ONLY
+            System.out.println("Inserted successfully");
+        } else {
+            //Temporary until better error message can be implemented
+            System.out.println("Please select an account type!");
+        }
         
         //After successfully creating account, automatically log them in.
         try {
