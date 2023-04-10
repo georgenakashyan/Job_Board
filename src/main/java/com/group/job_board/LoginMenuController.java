@@ -141,12 +141,21 @@ public class LoginMenuController {
     @FXML
     private void switchJobPostingMenu() throws IOException {
         applicants = new Vector<Applicant>();
+        posters = new Vector<Poster>();
         loadApplicants();
+        loadPosters();
         boolean userLoggedIn = false;
         numAtt++;
 
         for (int i = 0; i < applicants.size(); i++) {
             if (userName.getText().equals(applicants.get(i).getUsername()) && showPassword.getText().equals(applicants.get(i).getPassword())) {
+                System.out.println("Login successful.");
+                userLoggedIn = true;
+                App.setRoot("JobPostingMenu");
+            }
+        }
+        for (int i = 0; i < posters.size(); i++) {
+            if(userName.getText().equals(posters.get(i).getUsername()) && showPassword.getText().equals(posters.get(i).getPassword())) {
                 System.out.println("Login successful.");
                 userLoggedIn = true;
                 App.setRoot("JobPostingMenu");
