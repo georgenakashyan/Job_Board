@@ -9,6 +9,7 @@ package com.group.job_board;
  * @author jimko
  */
 public class Position {
+    int positionId;
     String positionTitle;
     String positionDescription;
     String positionPay;
@@ -24,7 +25,8 @@ public class Position {
         this.positionAddress = "";
     }
 
-    public Position(String positionTitle, String positionDescription, String positionPay, int positionSponsor, String positionAddress, boolean positionRemote, boolean positionActive) {
+    public Position(int positionId, String positionTitle, String positionDescription, String positionPay, int positionSponsor, String positionAddress, boolean positionRemote, boolean positionActive) {
+        this.positionId = positionId;
         this.positionTitle = positionTitle;
         this.positionDescription = positionDescription;
         this.positionPay = positionPay;

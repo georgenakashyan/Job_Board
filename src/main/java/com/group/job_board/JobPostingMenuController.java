@@ -21,14 +21,18 @@ import javafx.scene.control.ListView;
 public class JobPostingMenuController {
     @FXML
     ListView listviewJobs;
+    DatabaseLoad dbl;
     ObservableList<String> items;
     ArrayList<Position> alJobs;
+    ArrayList<Poster> alEmployers;
 
     
     @FXML
     public void initialize(){
+        dbl = new DatabaseLoad();
         items = listviewJobs.getItems();
-        alJobs = new ArrayList();
+        alJobs = dbl.loadPositions();
+        alEmployers = dbl.loadPosters();
         handleLoadFromDB();
     }
     /**
@@ -37,40 +41,10 @@ public class JobPostingMenuController {
      */
     @FXML
     private void handleLoadFromDB() {
-        String databaseURL = "";
-        Connection conn = null;
-        
-        
-        // establishing connection
-        try {
-            databaseURL = "jdbc:ucanaccess://.//CodeAngels.accdb";
-            conn = DriverManager.getConnection(databaseURL);
-        } catch (SQLException ex) {
-            Logger.getLogger(JobPostingMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        try {
-            String tableName = "position";
-            Statement stmt = conn.createStatement();
-            ResultSet result = stmt.executeQuery("select * from " + tableName);
-            conn.close();
-            while (result.next()) {
-                if (result.getBoolean("active") == true) {
-                    Position listing = new Position();
-                    listing.setPositionTitle(result.getString("positionTitle"));
-                    listing.setPositionDescription(result.getString("positionDesc"));
-                    listing.setPositionPay(result.getString("positionPay"));
-                    listing.setPositionSponsor(result.getInt("positionSponsor"));
-                    listing.setPositionAddress(result.getString("positionAddress"));
-                    listing.setPositionRemote(result.getBoolean("remote"));
-                    listing.setPositionActive(result.getBoolean("active"));
-                    alJobs.add(listing);
-                    items.add(listing.positionTitle);
-                }
-            }
-        } catch (SQLException except) {
-            System.out.println("BROKEN HANDLE LOAD");
-            except.printStackTrace();
+        for (int i = 1; i < alJobs.size(); i++) {
+            items.add(alJobs.get(i).positionTitle);
+            
         }
     }
 }

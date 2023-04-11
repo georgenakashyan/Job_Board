@@ -88,7 +88,7 @@ public class SignUpMenuController {
 
         // I assume this is testing code, putting this just in-case
         // Fix this: Applicant ID always set to 9
-        Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), password);
+        Applicant newApp = new Applicant();
 
         id = String.valueOf(newApp.getUserID());
         first = newApp.getFirstName();
