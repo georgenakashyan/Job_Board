@@ -67,4 +67,9 @@ public class SettingsMenuController {
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
     }
+    
+    @FXML
+    private void switchToJobPostingMenu() throws IOException {
+        App.setRoot("JobPostingMenu");
+    }
 }
