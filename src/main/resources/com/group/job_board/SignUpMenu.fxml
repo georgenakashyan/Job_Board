@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SignUpMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SignUpMenuController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -26,25 +26,16 @@
          </children>
       </AnchorPane>
    </left>
-   <center>
-      <AnchorPane prefHeight="400.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+   <right>
+      <AnchorPane prefHeight="438.0" prefWidth="385.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="1.0" layoutY="37.0" prefHeight="27.0" prefWidth="371.0" text="Sign Up" textFill="#1d0707">
+            <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="27.0" prefWidth="371.0" text="Sign Up" textFill="#1d0707">
                <font>
-                  <Font name="Apple Braille Outline 8 Dot" size="24.0" />
+                  <Font name="Apple Braille Outline 8 Dot" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="36.0" layoutY="101.0" text="Username">
-               <font>
-                  <Font name="Apple Braille Outline 6 Dot" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="36.0" layoutY="154.0" text="Password">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="userName" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter User Name">
+            <Label layoutX="32.0" layoutY="43.0" text="First Name" />
+            <TextField fx:id="firstName" layoutX="120.0" layoutY="39.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your First Name">
                <effect>
                   <InnerShadow>
                      <color>
@@ -53,7 +44,71 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <PasswordField fx:id="hidePassword" layoutX="117.0" layoutY="151.0" prefHeight="26.0" prefWidth="209.0" promptText="Enter Your Password">
+            <Label layoutX="32.0" layoutY="76.0" text="Last Name" />
+            <TextField fx:id="lastName" layoutX="120.0" layoutY="72.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Last Name">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9144737124443054" green="0.9060063362121582" blue="0.9060063362121582" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <Label layoutX="32.0" layoutY="107.0" text="Address" />
+            <TextField fx:id="address" alignment="TOP_LEFT" layoutX="120.0" layoutY="105.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Address">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9144737124443054" green="0.9060063362121582" blue="0.9060063362121582" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <Label layoutX="32.0" layoutY="143.0" text="Email" />
+            <TextField fx:id="email" alignment="TOP_LEFT" layoutX="120.0" layoutY="138.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Email">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9144737124443054" green="0.9060063362121582" blue="0.9060063362121582" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <Label layoutX="32.0" layoutY="176.0" text="Phone" />
+            <TextField fx:id="phoneNumber" alignment="TOP_LEFT" layoutX="120.0" layoutY="171.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Phone Number">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9144737124443054" green="0.9060063362121582" blue="0.9060063362121582" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <Label layoutX="32.0" layoutY="208.0" text="Username">
+               <font>
+                  <Font name="Apple Braille Outline 6 Dot" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userName" layoutX="117.0" layoutY="204.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter User Name">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9144737124443054" green="0.9060063362121582" blue="0.9060063362121582" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <Label layoutX="32.0" layoutY="242.0" text="Password" />
+            <TextField fx:id="showPassword" layoutX="118.0" layoutY="237.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9137254953384399" green="0.9058823585510254" blue="0.9058823585510254" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </TextField>
+            <PasswordField fx:id="hidePassword" layoutX="118.0" layoutY="237.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -62,32 +117,7 @@
                   </InnerShadow>
                </effect>
             </PasswordField>
-            <Button defaultButton="true" layoutX="41.0" layoutY="296.0" mnemonicParsing="false" onAction="#SignUpButtonHandler" onMouseClicked="#passwordMatch" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #0066ff#0066ff;" text="Sign Up" textFill="WHITE" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="39.0">
-               <font>
-                  <Font name="Apple Braille Outline 6 Dot" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="88.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#switchToLogInMenu" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="Have an account? Sign In!" textFill="#1a62e9" />
-            <ImageView fx:id="eyeCloseIcon" fitHeight="21.0" fitWidth="20.0" layoutX="332.0" layoutY="153.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/DisabledEye.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fx:id="eyeOpenIcon" fitHeight="17.0" fitWidth="19.0" layoutX="332.0" layoutY="157.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/EnabledEye.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <TextField fx:id="showPassword" layoutX="117.0" layoutY="150.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
+            <TextField fx:id="showReEnterPassword" layoutX="117.0" layoutY="270.0" prefHeight="26.0" prefWidth="210.0" promptText="Re-Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -96,8 +126,7 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <Label fx:id="errorMessage" layoutX="115.0" layoutY="219.0" text="Password doesn't match" textFill="#e90e0e" />
-            <PasswordField fx:id="hideReEnterPassword" layoutX="116.0" layoutY="187.0" prefHeight="26.0" prefWidth="211.0" promptText="Re-Enter Your Password">
+            <PasswordField fx:id="hideReEnterPassword" layoutX="117.0" layoutY="270.0" prefHeight="26.0" prefWidth="210.0" promptText="Re-Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -105,22 +134,35 @@
                      </color>
                   </InnerShadow>
                </effect></PasswordField>
-            <TextField fx:id="showReEnterPassword" layoutX="117.0" layoutY="187.0" prefHeight="26.0" prefWidth="210.0" promptText="Re-Enter Your Password">
-               <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.9137254953384399" green="0.9058823585510254" blue="0.9058823585510254" />
-                     </color>
-                  </InnerShadow>
-               </effect>
-            </TextField>
-            <ChoiceBox fx:id="UserIdentityChoiceBox" layoutX="117.0" layoutY="246.0" prefHeight="26.0" prefWidth="213.0" />
-            <Label layoutX="36.0" layoutY="251.0" text="Register as:">
+            <Label layoutX="32.0" layoutY="325.0" text="Register as" />
+            <ChoiceBox fx:id="UserIdentityChoiceBox" layoutX="116.0" layoutY="320.0" prefHeight="26.0" prefWidth="213.0" />
+            <Button defaultButton="true" layoutX="40.0" layoutY="365.0" mnemonicParsing="false" onAction="#SignUpButtonHandler" onMouseClicked="#passwordMatch" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: #0066ff#0066ff;" text="Sign Up" textFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Apple Braille Outline 6 Dot" size="14.0" />
                </font>
-            </Label>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="87.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#switchToLogInMenu" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="Have an account? Sign In!" textFill="#1a62e9" />
+            <ImageView fx:id="eyeCloseIcon" fitHeight="21.0" fitWidth="20.0" layoutX="332.0" layoutY="249.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/DisabledEye.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="eyeOpenIcon" fitHeight="17.0" fitWidth="19.0" layoutX="332.0" layoutY="253.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/EnabledEye.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label fx:id="errorMessage" layoutX="119.0" layoutY="296.0" text="Password doesn't match" textFill="#e90e0e" />
          </children>
       </AnchorPane>
-   </center>
+   </right>
 </BorderPane>

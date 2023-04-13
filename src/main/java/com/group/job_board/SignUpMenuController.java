@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +20,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class SignUpMenuController {
-    
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField phoneNumber;
     @FXML
     private Label errorMessage;
     @FXML
@@ -39,6 +50,10 @@ public class SignUpMenuController {
     private Boolean passwordShowing;
     @FXML
     private ChoiceBox UserIdentityChoiceBox;
+
+    Connection connection;
+    Statement statement;
+    ResultSet resultSet;
     
     ObservableList<String> UserIdentity = FXCollections.observableArrayList("Poster","Applicant");
 
@@ -48,19 +63,88 @@ public class SignUpMenuController {
     }
     @FXML
     private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
+        String errorCode = checkValueProblems();
+        if (!errorCode.isBlank()) {
+            errorMessage.setText(errorCode);
+            return;
+        }
         connectDB();
 
-        
+        String id = "";
+        String username = "";
+        String first = "";
+        String last = "";
+        String phone ="";
+        String appEmail = "";
+        String appAddress = "";
+        String password = "";
+        boolean active = true;
 
+        //Gets password from either shown or hidden text fields
+        if(showPassword.getText().equals(""))
+            password = hidePassword.getText();
+        else
+            password = showPassword.getText();
+
+        // I assume this is testing code, putting this just in-case
+        // Fix this: Applicant ID always set to 9
+        Applicant newApp = new Applicant();
+
+        id = String.valueOf(newApp.getUserID());
+        first = newApp.getFirstName();
+        last = newApp.getLastName();
+        username = newApp.getUsername();
+        password = newApp.getPassword();
+        phone = phoneNumber.getText();
+        appEmail = email.getText();
+        appAddress = address.getText();
+        
+           
+        //FOR TESTING PURPOSES ONLY
+        statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
+            + "'"+ id +"',"
+            + "'"+ first +"', "
+            + "'"+ last +"', "
+            + "'"+ appEmail +"', "
+            + "'"+ phone +"', "
+            + "'"+ appAddress +"', "
+            + "'"+ password +"', "
+            + "'"+ active +"', "
+            + "'"+ username +"')");
+            
+        //FOR TESTING PURPOSES ONLY
+        System.out.println("Inserted successfully");
+        
+        //After successfully creating account, automatically log them in.
+        try {
+            switchToLogInMenu();
+        } catch (IOException ex) {
+            Logger.getLogger(SignUpMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private String checkValueProblems() {
+        if (firstName.getText().equals(""))
+            return "First Name was left blank";
+        if (lastName.getText().equals(""))
+            return "Last Name was left blank";
+        if (address.getText().equals(""))
+            return "Address was left blank";
+        if (email.getText().equals(""))
+            return "Email was left blank";
+        if (phoneNumber.getText().equals(""))
+            return "Phone Number was left blank";
+        if (userName.getText().equals(""))
+            return "Username was left blank";
+        if (passwordBlank())
+            return "Password was left blank";
+        if (!passwordMatch())
+            return "Passwords don't match";
+        //Sets error code to be blank.
+        return "";
     }
 
-    public void connectDB() throws ClassNotFoundException, SQLException {
-        Connection connection;
-        Statement statement;
-        ResultSet resultSet;
-
-        // Database variables
-        // Step 1: Loading or registering JDBC driver class 
+    public void connectDB() throws ClassNotFoundException, SQLException { 
         Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
         // Step 2: Opening database connection
         String msAccDB = "codeangels.accdb";
@@ -82,9 +166,8 @@ public class SignUpMenuController {
         showPassword.setVisible(false);
         showReEnterPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
-        errorMessage.setVisible(false);
+        errorMessage.setText("");
         passwordShowing = false;
-        //initialize choicebox
         UserIdentityChoiceBox.setItems(UserIdentity);
         
     }
@@ -124,18 +207,26 @@ public class SignUpMenuController {
 
     @FXML
     private boolean passwordMatch() {
+        String p1, p2;
         if (passwordShowing) {
-            if (!(showReEnterPassword.getText().equals(showPassword.getText()))) {
-                errorMessage.setVisible(true);
-                return false;
-            }
+            p1 = showReEnterPassword.getText();
+            p2 = showPassword.getText();
         } else {
-            if (!(hideReEnterPassword.getText().equals(hidePassword.getText()))) {
-                errorMessage.setVisible(true);
-                return false;
-            }
+            p1 = hideReEnterPassword.getText();
+            p2 = hidePassword.getText();
         }
-        errorMessage.setVisible(false);
-        return true;
+        return (p1.equals(p2));
+    }
+    
+    private boolean passwordBlank() {
+        String p1, p2;
+        if (passwordShowing) {
+            p1 = showReEnterPassword.getText();
+            p2 = showPassword.getText();
+        } else {
+            p1 = hideReEnterPassword.getText();
+            p2 = hidePassword.getText();
+        }
+        return (p1.isBlank() || p2.isBlank());
     }
 }

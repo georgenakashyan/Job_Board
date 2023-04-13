@@ -12,19 +12,27 @@ public abstract class User {
 
     //ToDo 1: make member variables
     protected int userID;
-    protected String username, password;
+    protected long phone;
+    protected String username, password, email;
+    protected boolean active;
 
     //ToDo 2: make constructors
     public User() {
         this.userID = 0;
+        this.phone = 0;
         this.username = "";
         this.password = "";
+        this.email = "";
+        this.active = false;
     }
 
-    public User(int userID, String username, String password) {
+    public User(int userID, String username, String password, long phone, String email, boolean active) {
         this.userID = userID;
+        this.phone = phone;
         this.username = username;
         this.password = password;
+        this.email = email;
+        this.active = active;
     }
 
     //ToDo 3: make getters and setters
