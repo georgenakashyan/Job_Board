@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -93,7 +93,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="firstName" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -116,7 +116,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="lastName" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -139,7 +139,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="address" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -162,7 +162,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="email" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -185,7 +185,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="phoneNumber" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -208,7 +208,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="userName" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -231,7 +231,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField editable="false" prefHeight="26.0" prefWidth="295.0" />
+                              <TextField fx:id="accountType" editable="false" prefHeight="26.0" prefWidth="295.0" />
                            </children>
                            <HBox.margin>
                               <Insets top="5.0" />
@@ -256,9 +256,9 @@
                               </Label>
                               <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
                                  <children>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="295.0" promptText="Old Password" />
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="295.0" promptText="New Password" />
-                                    <Button mnemonicParsing="false" text="Change password" />
+                                    <TextField fx:id="oldPassword" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="Old Password" />
+                                    <TextField fx:id="newPassword" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="New Password" />
+                                    <Button mnemonicParsing="false" onAction="#changePassword" text="Change password" />
                                  </children>
                               </VBox>
                            </children>
@@ -281,8 +281,8 @@
                      <children>
                         <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="234.0" text="Sign out" />
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="233.0" text="Delete Account" />
+                              <Button mnemonicParsing="false" onAction="#SignOutButtonHandler" prefHeight="26.0" prefWidth="234.0" text="Sign out" />
+                              <Button mnemonicParsing="false" onAction="#DeleteAccountHandler" prefHeight="26.0" prefWidth="233.0" text="Delete Account" />
                            </children>
                            <HBox.margin>
                               <Insets />
