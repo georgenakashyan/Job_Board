@@ -29,6 +29,7 @@ public class LoginMenuController {
     @FXML
     private ImageView eyeOpenIcon;
 
+    Vector<Poster> posters;
     ArrayList<Applicant> applicants; 
     DatabaseLoad dbl;
     Vector<Applicant> newApplicants; 
@@ -43,10 +44,47 @@ public class LoginMenuController {
         eyeOpenIcon.setVisible(false);
         dbl = new DatabaseLoad();
     }
+
+    private void loadPosters() {
+        //create the variables for each field in the file
+        String id = "";
+        String companyName = "";
+        String username = "";
+        String phone ="";
+        String email = "";
+        String address = "";
+        String password = "";
+        int totalrows = 0, index = 0;
+        
+        try {
+            //Get the total rows in the table to loop through the result set
+            resultSet = statement.executeQuery("SELECT * FROM POSTER"); 
+            //resultSet.first();
+
+            totalrows = resultSet.getRow();
+            while (resultSet.next()) //tests for the eof
+            {   
+                totalrows = resultSet.getRow();
+                id = resultSet.getString("ID");
+                companyName = resultSet.getString("companyName");
+                username = resultSet.getString("username");
+                phone = resultSet.getString("phone");
+                email = resultSet.getString("email");
+                address = resultSet.getString("address");
+                password = resultSet.getString("password");
+                posters.add(new Poster(Integer.parseInt(id), companyName, username, password));
+                index++;
+            }//end of loading to array
+        }
+        catch (SQLException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
+    }
     
     //Login button
     @FXML
     private void switchJobPostingMenu() throws IOException {
+        posters = new Vector<Poster>();
         applicants = dbl.loadApplicants();
         boolean userLoggedIn = false;
         numAtt++;
@@ -54,6 +92,13 @@ public class LoginMenuController {
         
         for (int i = 0; i < applicants.size(); i++) {
             if (userName.getText().equals(applicants.get(i).getUsername()) && showPassword.getText().equals(applicants.get(i).getPassword())) {
+                System.out.println("Login successful.");
+                userLoggedIn = true;
+                App.setRoot("JobPostingMenu");
+            }
+        }
+        for (int i = 0; i < posters.size(); i++) {
+            if(userName.getText().equals(posters.get(i).getUsername()) && showPassword.getText().equals(posters.get(i).getPassword())) {
                 System.out.println("Login successful.");
                 userLoggedIn = true;
                 App.setRoot("JobPostingMenu");
