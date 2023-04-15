@@ -2,6 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,31 +20,24 @@
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
-            <VBox fx:id="menuVbox" prefWidth="203.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
+            <VBox fx:id="menuVbox" prefWidth="203.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="203.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="-170.0" top="10.0" />
-                           </HBox.margin>
-                           <image>
-                              <Image url="@../images/532-5328945_menu-bar-icon-white-clipart-png-download-menu-1670945305.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="288.0" prefHeight="38.0" prefWidth="160.0">
+                  <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/MenuBar.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="288.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="-80.0" />
+                              <Insets />
                            </HBox.margin>
                            <image>
                               <Image url="@../images/564-5647199_transparent-home-icon-clipart-circle-transparent-home-icon-2675523021.png" />
@@ -52,67 +48,106 @@
                               <Font size="18.0" />
                            </font>
                            <padding>
-                              <Insets left="10.0" top="5.0" />
+                              <Insets top="5.0" />
                            </padding>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="278.0" prefHeight="38.0" prefWidth="160.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="278.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <children>
                         <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="-80.0" />
+                              <Insets />
                            </HBox.margin>
                            <image>
                               <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="29.0" prefWidth="87.0" text="Setting" textFill="#ede8e8">
+                        <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <padding>
-                              <Insets left="10.0" top="5.0" />
+                              <Insets top="5.0" />
                            </padding>
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
                </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
             </VBox>
          </left>
          <right>
-            <Pane prefHeight="1000.0" prefWidth="450.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="673.0" prefWidth="420.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <Pane prefHeight="1000.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="668.0" prefWidth="387.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <TextField prefHeight="26.0" prefWidth="400.0" promptText="Search" />
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/SearchIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </HBox>
-                        <ScrollPane prefHeight="300.0" prefWidth="200.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                          </content>
-                        </ScrollPane>
+                        <TextField prefHeight="26.0" prefWidth="400.0" promptText="Search" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/MagnifyingGlass.png" />
+                           </image>
+                        </ImageView>
                      </children>
-                  </VBox>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <MenuButton mnemonicParsing="false" text="Distance">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="5 mi" />
+                            <MenuItem mnemonicParsing="false" text="10 mi" />
+                              <MenuItem mnemonicParsing="false" text="25 mi" />
+                          </items>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </MenuButton>
+                        <MenuButton mnemonicParsing="false" text="Location">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="In-Person" />
+                              <MenuItem mnemonicParsing="false" text="Hybrid" />
+                              <MenuItem mnemonicParsing="false" text="Remote" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton mnemonicParsing="false" text="Post Date">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Last 24 hrs" />
+                              <MenuItem mnemonicParsing="false" text="Last Week" />
+                              <MenuItem mnemonicParsing="false" text="Last Month" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ScrollPane prefHeight="800.0" prefWidth="400.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <content>
+                        <ListView fx:id="listviewJobs" prefHeight="800.0" prefWidth="390.0" />
+                     </content>
+                  </ScrollPane>
                </children>
-            </Pane>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </BorderPane.margin>
+            </VBox>
          </center>
       </BorderPane>
    </children>

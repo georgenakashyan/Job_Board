@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
+   <children>
+      <BorderPane prefHeight="673.0" prefWidth="1039.0">
+         <left>
+            <VBox fx:id="menuVbox" prefWidth="203.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/532-5328945_menu-bar-icon-white-clipart-png-download-menu-1670945305.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="288.0" onMouseClicked="#switchToJobPostingMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../images/564-5647199_transparent-home-icon-clipart-circle-transparent-home-icon-2675523021.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="29.0" prefWidth="87.0" text="Home" textFill="#ede8e8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="278.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="668.0" prefWidth="427.0" style="-fx-background-color: #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="First Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="firstName" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Last Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="lastName" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Address">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="address" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Email Address">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="email" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Phone Number">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="phoneNumber" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Username">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="userName" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Account Type">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="accountType" editable="false" prefHeight="26.0" prefWidth="295.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="550.0" text="Password">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="oldPassword" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="Old Password" />
+                                    <TextField fx:id="newPassword" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="New Password" />
+                                    <Button mnemonicParsing="false" onAction="#changePassword" text="Change password" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="83.0" prefWidth="406.0" spacing="10.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#SignOutButtonHandler" prefHeight="26.0" prefWidth="234.0" text="Sign out" />
+                              <Button mnemonicParsing="false" onAction="#DeleteAccountHandler" prefHeight="26.0" prefWidth="233.0" text="Delete Account" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

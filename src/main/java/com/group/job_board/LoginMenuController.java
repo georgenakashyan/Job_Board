@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
@@ -28,8 +29,10 @@ public class LoginMenuController {
     @FXML
     private ImageView eyeOpenIcon;
 
-    Vector<Applicant> applicants; 
     Vector<Poster> posters;
+    ArrayList<Applicant> applicants; 
+    DatabaseLoad dbl;
+    Vector<Applicant> newApplicants; 
     Connection connection;
     Statement statement;
     ResultSet resultSet;
@@ -39,66 +42,7 @@ public class LoginMenuController {
     private void initialize() {
         showPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
-        connectDB();
-    }
-    
-    private void connectDB() {
-        try {
-            // Database variables
-            // Step 1: Loading or registering JDBC driver class 
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 		 
-            // Step 2: Opening database connection
-            String msAccDB = "codeangels.accdb";
-            String dbURL = "jdbc:ucanaccess://" + msAccDB; 
-            // Step 3: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL); 
-            // Step 4: Creating JDBC Statement 
-            // It is scrollable so we can use next() and last() & It is updatable so we can enter new records
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-            ResultSet.CONCUR_UPDATABLE);
-            System.out.println("Database Connected!");
-        }
-        catch (ClassNotFoundException | SQLException e) {
-            System.out.println(Arrays.toString(e.getStackTrace()));
-        }
-    }
-
-    private void loadApplicants() {
-        //create the variables for each field in the file
-        String id = "";
-        String username = "";
-        String first = "";
-        String last = "";
-        String phone ="";
-        String email = "";
-        String address = "";
-        String password = "";
-        int totalrows = 0, index = 0;
-        
-        try {
-            //Get the total rows in the table to loop through the result set
-            resultSet = statement.executeQuery("SELECT * FROM APPLICANT"); 
-            //resultSet.first();
-
-            totalrows = resultSet.getRow();
-            while (resultSet.next()) //tests for the eof
-            {   
-                totalrows = resultSet.getRow();
-                id = resultSet.getString("ID");
-                username = resultSet.getString("username");
-                first = resultSet.getString("firstName");
-                last = resultSet.getString("lastName");
-                phone = resultSet.getString("phone");
-                email = resultSet.getString("email");
-                address = resultSet.getString("address");
-                password = resultSet.getString("password");
-                applicants.add(new Applicant(Integer.parseInt(id), first, last, username, password));
-                index++;
-            }//end of loading to array
-        }
-        catch (SQLException e) {
-            System.out.println(Arrays.toString(e.getStackTrace()));
-        }
+        dbl = new DatabaseLoad();
     }
 
     private void loadPosters() {
@@ -140,13 +84,12 @@ public class LoginMenuController {
     //Login button
     @FXML
     private void switchJobPostingMenu() throws IOException {
-        applicants = new Vector<Applicant>();
         posters = new Vector<Poster>();
-        loadApplicants();
-        loadPosters();
+        applicants = dbl.loadApplicants();
         boolean userLoggedIn = false;
         numAtt++;
-
+        
+        
         for (int i = 0; i < applicants.size(); i++) {
             if (userName.getText().equals(applicants.get(i).getUsername()) && showPassword.getText().equals(applicants.get(i).getPassword())) {
                 System.out.println("Login successful.");
