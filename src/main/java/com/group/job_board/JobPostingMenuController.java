@@ -24,7 +24,7 @@ public class JobPostingMenuController {
     DatabaseLoad dbl;
     ObservableList<String> items;
     ArrayList<Position> alJobs;
-    ArrayList<Poster> alEmployers;
+    ArrayList<Employer> alEmployers;
 
     
     @FXML
@@ -32,7 +32,7 @@ public class JobPostingMenuController {
         dbl = new DatabaseLoad();
         items = listviewJobs.getItems();
         alJobs = dbl.loadPositions();
-        alEmployers = dbl.loadPosters();
+        alEmployers = dbl.loadEmployers();
         handleLoadFromDB();
     }
     /**

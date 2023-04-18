@@ -29,7 +29,7 @@ public class LoginMenuController {
     @FXML
     private ImageView eyeOpenIcon;
 
-    Vector<Poster> posters;
+    Vector<Employer> employers;
     ArrayList<Applicant> applicants; 
     DatabaseLoad dbl;
     Vector<Applicant> newApplicants; 
@@ -45,11 +45,11 @@ public class LoginMenuController {
         dbl = new DatabaseLoad();
     }
 
-    private void loadPosters() {
+    private void loadEmployers() {
         //create the variables for each field in the file
         String id = "";
         String companyName = "";
-        String username = "";
+        String recruiter = "";
         String phone ="";
         String email = "";
         String address = "";
@@ -58,7 +58,7 @@ public class LoginMenuController {
         
         try {
             //Get the total rows in the table to loop through the result set
-            resultSet = statement.executeQuery("SELECT * FROM POSTER"); 
+            resultSet = statement.executeQuery("SELECT * FROM EMPLOYER"); 
             //resultSet.first();
 
             totalrows = resultSet.getRow();
@@ -67,12 +67,12 @@ public class LoginMenuController {
                 totalrows = resultSet.getRow();
                 id = resultSet.getString("ID");
                 companyName = resultSet.getString("companyName");
-                username = resultSet.getString("username");
+                recruiter = resultSet.getString("recruiter");
                 phone = resultSet.getString("phone");
                 email = resultSet.getString("email");
                 address = resultSet.getString("address");
                 password = resultSet.getString("password");
-                posters.add(new Poster(Integer.parseInt(id), companyName, username, password));
+                employers.add(new Employer(Integer.parseInt(id), companyName, address, recruiter, email, Long.valueOf(phone), password));
                 index++;
             }//end of loading to array
         }
@@ -84,7 +84,7 @@ public class LoginMenuController {
     //Login button
     @FXML
     private void switchJobPostingMenu() throws IOException {
-        posters = new Vector<Poster>();
+        employers = new Vector<Employer>();
         applicants = dbl.loadApplicants();
         boolean userLoggedIn = false;
         numAtt++;
@@ -97,8 +97,8 @@ public class LoginMenuController {
                 App.setRoot("JobPostingMenu");
             }
         }
-        for (int i = 0; i < posters.size(); i++) {
-            if(userName.getText().equals(posters.get(i).getUsername()) && showPassword.getText().equals(posters.get(i).getPassword())) {
+        for (int i = 0; i < employers.size(); i++) {
+            if(userName.getText().equals(employers.get(i).getUsername()) && showPassword.getText().equals(employers.get(i).getPassword())) {
                 System.out.println("Login successful.");
                 userLoggedIn = true;
                 App.setRoot("JobPostingMenu");

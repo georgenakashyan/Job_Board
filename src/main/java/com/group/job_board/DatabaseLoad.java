@@ -28,16 +28,7 @@ public class DatabaseLoad {
         ArrayList<Applicant> alApplicant = new ArrayList();
         alApplicant.add(new Applicant());
         
-        String databaseURL = "";
-        Connection conn = null;
-
-        // establishing connection
-        try {
-            databaseURL = "jdbc:ucanaccess://.//CodeAngels.accdb";
-            conn = DriverManager.getConnection(databaseURL);
-        } catch (SQLException ex) {
-            Logger.getLogger(JobPostingMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Connection conn = loadConnection();
 
         try {
             // import 
@@ -53,7 +44,7 @@ public class DatabaseLoad {
                     listing.setFirstName(result.getString("firstName"));
                     listing.setLastName(result.getString("lastName"));
                     listing.setEmail(result.getString("email"));
-                    listing.setPhone(result.getLong("phone"));
+                    listing.setPhoneNumber(result.getLong("phone"));
                     listing.setAddress(result.getString("address"));
                     listing.setPassword(result.getString("password"));
                     listing.setUsername(result.getString("username"));
@@ -69,59 +60,41 @@ public class DatabaseLoad {
         
         return alApplicant;
     }
-    public ArrayList<Poster> loadPosters() {
-        ArrayList<Poster> alPosters = new ArrayList();
-        alPosters.add(new Poster());
-        String databaseURL;
-        Connection conn = null;
+    public ArrayList<Employer> loadEmployers() {
+        ArrayList<Employer> alEmployers = new ArrayList();
+        alEmployers.add(new Employer());
         
-        
-        // establishing connection
-        try {
-            databaseURL = "jdbc:ucanaccess://.//CodeAngels.accdb";
-            conn = DriverManager.getConnection(databaseURL);
-        } catch (SQLException ex) {
-            Logger.getLogger(JobPostingMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Connection conn = loadConnection();
 
         try {
             String employerTable = "employer";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery("SELECT * FROM " + employerTable);
             while (result.next()) {
-                Poster poster = new Poster();
-                poster.setUserID(result.getInt("ID"));
-                poster.setCompanyName(result.getString("employerName"));
-                poster.setAddress(result.getString("employerAddress"));
-                poster.setRecruiterName(result.getString("recruiterName"));
-                poster.setEmail(result.getString("recruiterEmail"));
-                poster.setPhone(result.getLong("recruiterPhone"));
-                poster.setPassword(result.getString("password"));
-                poster.setActive(result.getBoolean("active"));
-                poster.setUsername(result.getString("username"));
+                Employer employer = new Employer();
+                employer.setUserID(result.getInt("ID"));
+                employer.setCompanyName(result.getString("employerName"));
+                employer.setAddress(result.getString("employerAddress"));
+                employer.setRecruiterName(result.getString("recruiterName"));
+                employer.setEmail(result.getString("recruiterEmail"));
+                employer.setPhoneNumber(result.getLong("recruiterPhone"));
+                employer.setPassword(result.getString("password"));
+                employer.setActive(result.getBoolean("active"));
+                employer.setUsername(result.getString("username"));
             }
         } catch (SQLException except) {
             System.out.println("BROKEN HANDLE LOAD");
             except.printStackTrace();
         }
         
-        return alPosters;
+        return alEmployers;
     }
 
     public ArrayList<Position> loadPositions() {
         ArrayList<Position> alPositions = new ArrayList();
         alPositions.add(new Position());
         
-        String databaseURL = "";
-        Connection conn = null;
-
-        // establishing connection
-        try {
-            databaseURL = "jdbc:ucanaccess://.//CodeAngels.accdb";
-            conn = DriverManager.getConnection(databaseURL);
-        } catch (SQLException ex) {
-            Logger.getLogger(JobPostingMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Connection conn = loadConnection();
 
         try {
             // import 
@@ -150,5 +123,19 @@ public class DatabaseLoad {
         }
         
         return alPositions;
+    }
+    
+    private Connection loadConnection() {
+        String databaseURL = "";
+        Connection conn = null;
+
+        // establishing connection
+        try {
+            databaseURL = "jdbc:ucanaccess://.//CodeAngels.accdb";
+            conn = DriverManager.getConnection(databaseURL);
+        } catch (SQLException ex) {
+            Logger.getLogger(JobPostingMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return conn;
     }
 }

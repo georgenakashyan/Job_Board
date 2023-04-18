@@ -52,7 +52,7 @@ public class SignUpMenuController {
     Statement statement;
     ResultSet resultSet;
     
-    ObservableList<String> UserIdentity = FXCollections.observableArrayList("Poster","Applicant");
+    ObservableList<String> UserIdentity = FXCollections.observableArrayList("Employer","Applicant");
 
     @FXML
     private void switchToLogInMenu() throws IOException {
@@ -75,8 +75,8 @@ public class SignUpMenuController {
         String phone ="";
         String appEmail = "";
         String appAddress = "";
-        String posterEmail = "";
-        String posterAddress = "";
+        String employerEmail = "";
+        String employerAddress = "";
         String password = "";
         boolean active = true;
 
@@ -88,8 +88,7 @@ public class SignUpMenuController {
 
         if(UserIdentityChoiceBox.getValue().equals("Applicant")) {
             // I assume this is testing code, putting this just in-case
-            // Fix this: Applicant ID always set to 9
-            Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), userName.getText(), password);
+            Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), email.getText(), Long.valueOf(phoneNumber.getText()), address.getText(), password, userName.getText());
 
             //id = String.valueOf(newApp.getUserID());
             id = newApp.getUserID();
@@ -115,26 +114,26 @@ public class SignUpMenuController {
                 
             //FOR TESTING PURPOSES ONLY
             System.out.println("Inserted successfully");
-        } else if(UserIdentityChoiceBox.getValue().equals("Poster")) {
+        } else if(UserIdentityChoiceBox.getValue().equals("Employer")) {
             //TEMPORARILY has company name set to a combo of first and last name
-            Poster newPoster = new Poster(9, (firstName.getText() + lastName.getText()), userName.getText(), password);
+            Employer newEmployer = new Employer(9, userName.getText(), address.getText(), (firstName.getText() + " " + lastName.getText()), email.getText(), Long.valueOf(phoneNumber.getText()), password);
 
-            //id = String.valueOf(newPoster.getUserID());
-            id = newPoster.getUserID();
-            companyName = newPoster.getCompanyName();
-            username = newPoster.getUsername();
-            password = newPoster.getPassword();
+            //id = String.valueOf(newEmployer.getUserID());
+            id = newEmployer.getUserID();
+            companyName = newEmployer.getCompanyName();
+            username = newEmployer.getUsername();
+            password = newEmployer.getPassword();
             phone = phoneNumber.getText();
-            posterEmail = email.getText();
-            posterAddress = address.getText();
+            employerEmail = email.getText();
+            employerAddress = address.getText();
             
             //FOR TESTING PURPOSES ONLY
-            statement.executeUpdate("INSERT INTO POSTER VALUES ("
+            statement.executeUpdate("INSERT INTO EMPLOYER VALUES ("
                 + "'"+ id +"',"
                 + "'"+ companyName +"', "
-                + "'"+ posterEmail +"', "
+                + "'"+ employerEmail +"', "
                 + "'"+ phone +"', "
-                + "'"+ posterAddress +"', "
+                + "'"+ employerAddress +"', "
                 + "'"+ password +"', "
                 + "'"+ active +"', "
                 + "'"+ username +"')");
