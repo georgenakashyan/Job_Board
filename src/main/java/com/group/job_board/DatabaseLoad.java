@@ -75,7 +75,6 @@ public class DatabaseLoad {
                 employer.setUserID(result.getInt("ID"));
                 employer.setCompanyName(result.getString("employerName"));
                 employer.setAddress(result.getString("employerAddress"));
-                employer.setRecruiterName(result.getString("recruiterName"));
                 employer.setEmail(result.getString("recruiterEmail"));
                 employer.setPhoneNumber(result.getLong("recruiterPhone"));
                 employer.setPassword(result.getString("password"));

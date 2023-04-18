@@ -45,11 +45,12 @@ public abstract class User {
         this.active = false;
     }
 
-    public User(int userID, String email, long phoneNumber, String password) {
+    public User(int userID, String email, long phoneNumber, String password, String username) {
         this.userID = userID;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.username = username;
         this.email = email;
     }
 

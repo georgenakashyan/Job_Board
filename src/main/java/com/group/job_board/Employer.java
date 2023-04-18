@@ -15,16 +15,15 @@ import java.util.Arrays;
 public class Employer extends ModeratableUser implements Jobs {
 
     // Employer variables
-    String companyName, recruiterName;
+    String companyName;
 
     // constructor
     public Employer() {
     }
 
-    public Employer(int userID, String companyName, String address, String recruiterName, String email, long phoneNumber, String password) {
-        super(userID, email, phoneNumber, address, password);
+    public Employer(int userID, String companyName, String address, String username, String email, long phoneNumber, String password) {
+        super(userID, email, phoneNumber, address, password, username);
         this.companyName = companyName;
-        this.recruiterName = recruiterName;
         this.active = true;
     }
 
@@ -34,14 +33,6 @@ public class Employer extends ModeratableUser implements Jobs {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
-    }
-
-    public String getRecruiterName() {
-        return recruiterName;
-    }
-
-    public void setRecruiterName(String recruiterName) {
-        this.recruiterName = recruiterName;
     }
 
     @Override
@@ -113,7 +104,7 @@ public class Employer extends ModeratableUser implements Jobs {
     public String toString() {
         // int userID, String companyName, String address, String recruiterName, String email, int phoneNumber, String password, boolean active
         return "Employer{" + "user ID: " + userID + ", company name: " + companyName
-                + ", address:" + address + ", recruiter name: " + recruiterName + ", recruiter email: " + email + ", "
+                + ", address:" + address + ", recruiter name: " + username + ", recruiter email: " + email + ", "
                 + ", phone number: " + phoneNumber + ", password: " + password + '}';
     }
 

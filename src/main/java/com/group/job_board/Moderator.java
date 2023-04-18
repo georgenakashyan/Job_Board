@@ -4,11 +4,8 @@
  */
 package com.group.job_board;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -25,8 +22,8 @@ public class Moderator extends User {
     public Moderator() {
     }
 
-    public Moderator(int userID, String firstName, String lastName, String email, int phoneNumber, boolean active, String password) {
-        super(userID, email, phoneNumber, password);
+    public Moderator(int userID, String firstName, String lastName, String email, int phoneNumber, boolean active, String password, String username) {
+        super(userID, email, phoneNumber, password, username);
         this.firstName = firstName;
         this.lastName = lastName;
         this.active = active;

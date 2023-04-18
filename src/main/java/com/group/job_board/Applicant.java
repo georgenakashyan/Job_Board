@@ -23,7 +23,7 @@ public class Applicant extends ModeratableUser implements Jobs {
     }
 
     public Applicant(int userID, String firstName, String lastName, String email, long phoneNumber, String address, String password, String username) {
-        super(userID, email, phoneNumber, address, password);
+        super(userID, email, phoneNumber, address, password, username);
         this.firstName = firstName;
         this.lastName = lastName;
         this.active = true;

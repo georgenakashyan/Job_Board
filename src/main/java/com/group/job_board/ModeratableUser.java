@@ -14,8 +14,8 @@ public class ModeratableUser extends User {
     public ModeratableUser() {
     }
 
-    public ModeratableUser(int userID, String email, long phoneNumber, String address, String password) {
-        super(userID, email, phoneNumber, password);
+    public ModeratableUser(int userID, String email, long phoneNumber, String address, String password, String username) {
+        super(userID, email, phoneNumber, password, username);
         this.address = address;
     }
 
