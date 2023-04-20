@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.LoginMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.LoginMenuController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -43,7 +43,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="userName" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter User Name">
+            <TextField fx:id="email" layoutX="117.0" layoutY="98.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Email">
                <effect>
                   <InnerShadow>
                      <color>
@@ -52,6 +52,7 @@
                   </InnerShadow>
                </effect>
             </TextField>
+            <Label fx:id="errorMessage" layoutX="36.0" layoutY="200.0" textFill="RED" />
             <PasswordField fx:id="hidePassword" layoutX="117.0" layoutY="151.0" onKeyReleased="#HidePasswordOnAction" prefHeight="26.0" prefWidth="209.0" promptText="Enter Your Password">
                <effect>
                   <InnerShadow>

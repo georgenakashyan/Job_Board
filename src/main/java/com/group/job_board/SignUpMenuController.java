@@ -65,20 +65,7 @@ public class SignUpMenuController {
             errorMessage.setText(errorCode);
             return;
         }
-        connectDB();
-
-        int id;
-        String companyName = "";
-        String username = "";
-        String first = "";
-        String last = "";
-        String phone ="";
-        String appEmail = "";
-        String appAddress = "";
-        String employerEmail = "";
-        String employerAddress = "";
         String password = "";
-        boolean active = true;
 
         //Gets password from either shown or hidden text fields
         if(showPassword.getText().equals(""))
@@ -87,62 +74,9 @@ public class SignUpMenuController {
             password = showPassword.getText();
 
         if(UserIdentityChoiceBox.getValue().equals("Applicant")) {
-            // I assume this is testing code, putting this just in-case
-            Applicant newApp = new Applicant(9, firstName.getText(), lastName.getText(), email.getText(), Long.valueOf(phoneNumber.getText()), address.getText(), password, userName.getText());
-
-            //id = String.valueOf(newApp.getUserID());
-            id = newApp.getUserID();
-            first = newApp.getFirstName();
-            last = newApp.getLastName();
-            username = newApp.getUsername();
-            password = newApp.getPassword();
-            phone = phoneNumber.getText();
-            appEmail = email.getText();
-            appAddress = address.getText();
             
-            //FOR TESTING PURPOSES ONLY
-            statement.executeUpdate("INSERT INTO APPLICANT VALUES ("
-                + "'"+ id +"',"
-                + "'"+ first +"', "
-                + "'"+ last +"', "
-                + "'"+ appEmail +"', "
-                + "'"+ phone +"', "
-                + "'"+ appAddress +"', "
-                + "'"+ password +"', "
-                + "'"+ active +"', "
-                + "'"+ username +"')");
-                
-            //FOR TESTING PURPOSES ONLY
-            System.out.println("Inserted successfully");
         } else if(UserIdentityChoiceBox.getValue().equals("Employer")) {
-            //TEMPORARILY has company name set to a combo of first and last name
-            Employer newEmployer = new Employer(9, userName.getText(), address.getText(), (firstName.getText() + " " + lastName.getText()), email.getText(), Long.valueOf(phoneNumber.getText()), password);
-
-            //id = String.valueOf(newEmployer.getUserID());
-            id = newEmployer.getUserID();
-            companyName = newEmployer.getCompanyName();
-            username = newEmployer.getUsername();
-            password = newEmployer.getPassword();
-            phone = phoneNumber.getText();
-            employerEmail = email.getText();
-            employerAddress = address.getText();
             
-            //FOR TESTING PURPOSES ONLY
-            statement.executeUpdate("INSERT INTO EMPLOYER VALUES ("
-                + "'"+ id +"',"
-                + "'"+ companyName +"', "
-                + "'"+ employerEmail +"', "
-                + "'"+ phone +"', "
-                + "'"+ employerAddress +"', "
-                + "'"+ password +"', "
-                + "'"+ active +"', "
-                + "'"+ username +"')");
-                
-            //FOR TESTING PURPOSES ONLY
-            System.out.println("Inserted successfully");
-        } else {
-            //Temporary until better error message can be implemented
-            System.out.println("Please select an account type!");
         }
         
         //After successfully creating account, automatically log them in.
@@ -166,6 +100,8 @@ public class SignUpMenuController {
             return "Phone Number was left blank";
         if (userName.getText().equals(""))
             return "Username was left blank";
+        if (UserIdentityChoiceBox.getValue() == null)
+            return "Please select an account type";
         if (passwordBlank())
             return "Password was left blank";
         if (!passwordMatch())

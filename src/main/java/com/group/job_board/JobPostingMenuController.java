@@ -21,7 +21,6 @@ import javafx.scene.control.ListView;
 public class JobPostingMenuController {
     @FXML
     ListView listviewJobs;
-    DatabaseLoad dbl;
     ObservableList<String> items;
     ArrayList<Position> alJobs;
     ArrayList<Employer> alEmployers;
@@ -29,25 +28,8 @@ public class JobPostingMenuController {
     
     @FXML
     public void initialize(){
-        dbl = new DatabaseLoad();
         items = listviewJobs.getItems();
-        alJobs = dbl.loadPositions();
-        alEmployers = dbl.loadEmployers();
-        handleLoadFromDB();
     }
-    /**
-     * This method will load in all relevant data from a Microsoft access
-     * database
-     */
-    @FXML
-    private void handleLoadFromDB() {
-
-        for (int i = 1; i < alJobs.size(); i++) {
-            items.add(alJobs.get(i).positionTitle);
-            
-        }
-    }
-    
     @FXML
     private void switchToSettingsMenu() throws IOException {
         App.setRoot("SettingsMenu");
