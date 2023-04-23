@@ -11,9 +11,7 @@ import java.util.Scanner;
  */
 public class Applicant extends ModeratableUser implements Jobs {
 
-    ArrayList<Applicant> applicants = new ArrayList();
-
-    protected String firstName, lastName;
+    private String firstName, lastName;
 
     public Applicant() {
     }

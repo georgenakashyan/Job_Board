@@ -40,7 +40,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/564-5647199_transparent-home-icon-clipart-circle-transparent-home-icon-2675523021.png" />
+                              <Image url="@../images/homeIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Home" textFill="#ede8e8">
@@ -63,7 +63,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                              <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
@@ -86,10 +86,16 @@
             </VBox>
          </left>
          <right>
-            <Pane prefHeight="673.0" prefWidth="420.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="663.0" prefWidth="390.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="691.0" prefWidth="432.0" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin></Pane>
          </right>
          <center>
-            <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="663.0" prefWidth="429.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>

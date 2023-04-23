@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -20,7 +20,7 @@
                <children>
                   <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/532-5328945_menu-bar-icon-white-clipart-png-download-menu-1670945305.png" />
+                        <Image url="@../images/MenuBar.png" />
                      </image>
                      <VBox.margin>
                         <Insets bottom="10.0" />
@@ -36,7 +36,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/564-5647199_transparent-home-icon-clipart-circle-transparent-home-icon-2675523021.png" />
+                              <Image url="@../images/homeIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Home" textFill="#ede8e8">
@@ -59,7 +59,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                              <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
