@@ -48,8 +48,7 @@ public class SettingsMenuController {
    
     @FXML
     private void SignOutButtonHandler() throws IOException{
-        // Sign them out of their account
-        // Send to loginMenu page
+        FirestoreContext.logout();
         switchToLogInMenu();
     }
     
