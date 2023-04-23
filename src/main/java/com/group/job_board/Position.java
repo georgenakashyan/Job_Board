@@ -17,6 +17,9 @@ public class Position {
             town,
             state;
     boolean remote;
+    
+    public Position() { 
+    }
 
     public Position(String company, String title, String description, String pay, String street, String town, String state, boolean remote) {
         this.company = company;
