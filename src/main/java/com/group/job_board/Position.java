@@ -15,10 +15,10 @@ public class Position {
             pay,
             street,
             town,
-            state;
-    boolean remote;
-
-    public Position(String company, String title, String description, String pay, String street, String town, String state, boolean remote) {
+            state,
+            remote;
+    
+    public Position(String company, String title, String description, String pay, String street, String town, String state, String remote) {
         this.company = company;
         this.title = title;
         this.description = description;
@@ -85,11 +85,11 @@ public class Position {
         this.state = state;
     }
 
-    public boolean isRemote() {
+    public String getRemote() {
         return remote;
     }
 
-    public void setRemote(boolean remote) {
+    public void setRemote(String remote) {
         this.remote = remote;
     }
 }

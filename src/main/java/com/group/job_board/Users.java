@@ -10,13 +10,11 @@ public abstract class Users {
             email,
             password,
             username;
-    protected boolean active;
 
     public Users() {
         this.email = "";
         this.phone = "";
         this.password = "";
-        this.active = false;
     }
 
     public Users(String email, String phoneNumber, String password, String username) {
@@ -56,13 +54,5 @@ public abstract class Users {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 }
