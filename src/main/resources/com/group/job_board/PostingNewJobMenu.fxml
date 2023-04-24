@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PostingNewJobMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PostingNewJobMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -38,7 +38,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/564-5647199_transparent-home-icon-clipart-circle-transparent-home-icon-2675523021.png" />
+                              <Image url="@../images/homeIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Home" textFill="#ede8e8">
@@ -61,7 +61,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                              <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
@@ -87,10 +87,10 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                              <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="29.0" prefWidth="149.0" text="Employer/Post Job" textFill="#ede8e8">
+                        <Label prefHeight="29.0" prefWidth="149.0" text="Post New Job" textFill="#ede8e8">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -121,29 +121,6 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="200.0" text="Company Name">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="firstName" editable="false" prefHeight="26.0" prefWidth="349.0" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                                 </padding>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets left="20.0" right="20.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
-                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
-                                 <children>
                                     <Label prefHeight="30.0" prefWidth="200.0" text="Job Title">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
@@ -163,11 +140,11 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="381.0" prefWidth="826.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="826.0">
                            <children>
                               <HBox fx:id="CompanyName" alignment="CENTER_LEFT" prefHeight="166.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="202.0" text="Job Discription">
+                                    <Label prefHeight="30.0" prefWidth="202.0" text="Job Description">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -177,6 +154,29 @@
                                           <Cursor fx:constant="DEFAULT" />
                                        </cursor>
                                     </TextField>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="200.0" text="Job Pay">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="jobPay" editable="false" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -240,7 +240,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="201.0" text="Job Location">
+                                    <Label prefHeight="30.0" prefWidth="201.0" text="Town">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -267,6 +267,68 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="201.0" text="Street">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="JobLocation1" editable="false" prefHeight="26.0" prefWidth="295.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="201.0" text="State">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="JobLocation2" editable="false" prefHeight="26.0" prefWidth="295.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </HBox>
                         <HBox prefHeight="83.0" prefWidth="406.0" spacing="10.0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -274,7 +336,7 @@
                            <children>
                               <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#UploadJobButtomHandler" prefHeight="26.0" prefWidth="234.0" text="Upload Job Posting" />
+                                    <Button mnemonicParsing="false" onAction="#UploadJobButtomHandler" prefHeight="26.0" prefWidth="234.0" text="Upload New Job Posting" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />

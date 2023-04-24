@@ -1,5 +1,6 @@
 package com.group.job_board;
 
+import com.google.cloud.firestore.Firestore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,9 +16,12 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    public static Firestore fStore;
+    public static Users currentUser;
 
     @Override
     public void start(Stage stage) throws IOException {
+        fStore =  FirestoreContext.connectToDB();
         scene = new Scene(loadFXML("LoginMenu"), 640, 480);
         stage.setScene(scene);
         stage.show();

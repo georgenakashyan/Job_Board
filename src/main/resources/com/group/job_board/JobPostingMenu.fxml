@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -40,7 +40,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/564-5647199_transparent-home-icon-clipart-circle-transparent-home-icon-2675523021.png" />
+                              <Image url="@../images/homeIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Home" textFill="#ede8e8">
@@ -53,7 +53,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="278.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="278.0" onMouseClicked="#switchToSettingsMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -63,7 +63,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                              <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="87.0" text="Settings" textFill="#ede8e8">
@@ -79,7 +79,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="124.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="124.0" onMouseClicked="#switchToNewJobPostMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -89,10 +89,10 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../images/gear-settings-options-icon-67419-835105031.png" />
+                              <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="29.0" prefWidth="149.0" text="Employer/Post Job" textFill="#ede8e8">
+                        <Label prefHeight="29.0" prefWidth="149.0" text="New Job Post" textFill="#ede8e8">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -109,10 +109,16 @@
             </VBox>
          </left>
          <right>
-            <Pane prefHeight="673.0" prefWidth="420.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="663.0" prefWidth="390.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="691.0" prefWidth="432.0" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin></Pane>
          </right>
          <center>
-            <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="663.0" prefWidth="429.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>

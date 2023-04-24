@@ -6,91 +6,90 @@ package com.group.job_board;
 
 /**
  *
- * @author jimko
+ * @author jimko / George
  */
 public class Position {
-    int positionId;
-    String positionTitle;
-    String positionDescription;
-    String positionPay;
-    int positionSponsor;
-    String positionAddress;
-    boolean positionRemote;
-    boolean positionActive;
+    String company,
+            title,
+            description,
+            pay,
+            street,
+            town,
+            state;
+    boolean remote;
 
-    public Position() {
-        this.positionTitle = "";
-        this.positionDescription = "";
-        this.positionPay = "";
-        this.positionAddress = "";
+    public Position(String company, String title, String description, String pay, String street, String town, String state, boolean remote) {
+        this.company = company;
+        this.title = title;
+        this.description = description;
+        this.pay = pay;
+        this.street = street;
+        this.town = town;
+        this.state = state;
+        this.remote = remote;
     }
 
-    public Position(int positionId, String positionTitle, String positionDescription, String positionPay, int positionSponsor, String positionAddress, boolean positionRemote, boolean positionActive) {
-        this.positionId = positionId;
-        this.positionTitle = positionTitle;
-        this.positionDescription = positionDescription;
-        this.positionPay = positionPay;
-        this.positionSponsor = positionSponsor;
-        this.positionAddress = positionAddress;
-        this.positionRemote = positionRemote;
-        this.positionActive = positionActive;
+    public String getCompany() {
+        return company;
     }
 
-    public String getPositionTitle() {
-        return positionTitle;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public void setPositionTitle(String positionTitle) {
-        this.positionTitle = positionTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getPositionDescription() {
-        return positionDescription;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setPositionDescription(String positionDescription) {
-        this.positionDescription = positionDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public String getPositionPay() {
-        return positionPay;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setPositionPay(String positionPay) {
-        this.positionPay = positionPay;
+    public String getPay() {
+        return pay;
     }
 
-    public int getPositionSponsor() {
-        return positionSponsor;
+    public void setPay(String pay) {
+        this.pay = pay;
     }
 
-    public void setPositionSponsor(int positionSponsor) {
-        this.positionSponsor = positionSponsor;
+    public String getStreet() {
+        return street;
     }
 
-    public String getPositionAddress() {
-        return positionAddress;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public void setPositionAddress(String positionAddress) {
-        this.positionAddress = positionAddress;
+    public String getTown() {
+        return town;
     }
 
-    public boolean isPositionRemote() {
-        return positionRemote;
+    public void setTown(String town) {
+        this.town = town;
     }
 
-    public void setPositionRemote(boolean positionRemote) {
-        this.positionRemote = positionRemote;
+    public String getState() {
+        return state;
     }
 
-    public boolean isPositionActive() {
-        return positionActive;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public void setPositionActive(boolean positionActive) {
-        this.positionActive = positionActive;
+    public boolean isRemote() {
+        return remote;
     }
-    
-    
+
+    public void setRemote(boolean remote) {
+        this.remote = remote;
+    }
 }

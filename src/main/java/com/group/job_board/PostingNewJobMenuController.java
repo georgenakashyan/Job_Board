@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.group.job_board;
 
 import java.io.IOException;
@@ -25,11 +20,11 @@ public class PostingNewJobMenuController {
     private Button UploadJob;
 
     @FXML
-    private TextField CompanyName;
+    private TextField jobPay;
     @FXML
-    private TextField JobTItle;
+    private TextField JobTitle;
     @FXML
-    private TextField JobDiscription;
+    private TextField JobDescription;
     @FXML
     private ChoiceBox JobType;
     ObservableList<String> jt = FXCollections.observableArrayList("Full Time", "Part Time", "Intern");
@@ -53,17 +48,19 @@ public class PostingNewJobMenuController {
         }
 
     }
-    @FXML
-    private void switchToSettingMenu() throws IOException {
-        if (setting.isPressed() == true) {
-            App.setRoot("SettingsMenu");
-        }
-
-    }
 
     @FXML
     private void UploadJobButtomHandler() {
 
     }
-
+    
+    @FXML
+    private void switchToSettingsMenu() throws IOException {
+        App.setRoot("SettingsMenu");
+    }
+    
+    @FXML
+    private void switchToJobPostingMenu() throws IOException {
+        App.setRoot("JobPostingMenu");
+    }
 }

@@ -4,37 +4,49 @@
  */
 package com.group.job_board;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author main
  */
-public class Moderator extends User {
-    String firstName;
-    String lastName;
+public class Moderator extends Users {
+
+    String firstName, lastName;
+
     public Moderator() {
     }
 
-    public Moderator(String firstName, String lastName, int userID, String username, String password, int phone, String email, boolean active) {
-        super(userID, username, password, phone, email, active);
+    public Moderator(String firstName, String lastName, String email, String phoneNumber, String password, String username) {
+        super(email, phoneNumber, password, username);
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    
-    // method prototypes
+    public void addModerator(String firstName, String lastName, String email, String phoneNumber, String password, String username) {
+
+    }
+
+    public void removeModerator(int userID) {
+    }
+
+    public void removeApplicant(int userID) {
+    }
+
+    public void removeEmployer(int userID) {
+    }
+
+    private void viewJobs() {
+    }
+
     public void login() {
     }
 
     public void logout() {
     }
-
-    private static void viewJobs() {
-    }
-
-    private static void approveJobs() {
-    }
-
-    public static void removeUser() {
-    }
-
 }

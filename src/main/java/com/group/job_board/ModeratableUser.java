@@ -1,29 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.group.job_board;
 
 /**
  *
  * @author main
  */
-public class ModeratableUser extends User {
-    protected String address;
-    
+public class ModeratableUser extends Users {
+
+    protected String road;
+    protected String town;
+    protected String state;
+
     public ModeratableUser() {
     }
 
-    public ModeratableUser(String address, int userID, String username, String password, long phone, String email, boolean active) {
-        super(userID, username, password, phone, email, active);
-        this.address = address;
+    public ModeratableUser(String road, String town, String state, String email, String phoneNumber, String password, String username) {
+        super(email, phoneNumber, password, username);
+        this.road = road;
+        this.town = town;
+        this.state = state;
     }
 
-    // method prototypes
-    public void login() {
+    
+
+    public String getRoad() {
+        return road;
     }
 
-    public void logout() {
+    public void setRoad(String road) {
+        this.road = road;
     }
 
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

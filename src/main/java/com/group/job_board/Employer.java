@@ -1,50 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.group.job_board;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  *
  * @author main
  */
-public class Applicant extends ModeratableUser implements Jobs {
+public class Employer extends ModeratableUser implements Jobs {
 
-    private String firstName, lastName;
+    // Employer variables
+    String companyName;
 
-    public Applicant() {
+    // constructor
+    public Employer() {
+    }
+    
+
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public Applicant(String firstName, String lastName, String road, String town, String state, String email, String phoneNumber, String password, String username) {
-        super(road, town, state, email, phoneNumber, password, username);
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    // ToDo write code for updateProfile(), deleteProfile(), search(), and apply()
-    public void updateProfile() {
-    }
-
-    public void deleteProfile() {
-    }
-
+    // ToDo write code for addPosition() and viewPosition()
     @Override
     public Jobs addJob() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
