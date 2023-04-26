@@ -20,10 +20,14 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author MoaathAlrajab
+ * @author George, Timmothy
  */
 public class FirestoreContext {
-
+    
+    /**
+     * Create a connection to the database.
+     * @return the Firestore object that acts as the connection.
+     */
     public static Firestore connectToDB() {
         try {
             FileInputStream serviceAccount = new FileInputStream("key.json");
@@ -38,6 +42,11 @@ public class FirestoreContext {
         return FirestoreClient.getFirestore();
     }
 
+    /**
+     * Logs a user in by setting the app's global user variable to a new user with their info.
+     * @param email email login
+     * @param password password login
+     */
     public static void login(String email, String password) {
         try {
             CollectionReference userTable = App.fStore.collection("Users");
@@ -66,13 +75,15 @@ public class FirestoreContext {
         }
     }
 
+    /**
+     * Logs user out.
+     */
     public static void logout() {
         App.currentUser = null;
     }
 
     /**
      * Account creation for users.
-     *
      * @param u Users of which is being added.
      */
     public static void addUser(Users u) {
@@ -97,7 +108,10 @@ public class FirestoreContext {
         }
     }
 
-   
+   /**
+    * Creation of a new job posting.
+    * @param p job posting object with info to be added into the database.
+    */
     public static void addJobPosting(Position p) {
         try {
             Firestore db = connectToDB();
@@ -108,7 +122,10 @@ public class FirestoreContext {
         }
     }
 
-    // Add unique ID for jobs called jobID
+    /**
+     * Removes an existing job posting from the database.
+     * @param jobID ID number to identify the job that will be removed.
+     */
     public static void removeJobPosting(int jobID) {
         try {
             CollectionReference userTable = App.fStore.collection("JobPostings");
@@ -125,10 +142,8 @@ public class FirestoreContext {
 
     }
 
-    // Moderator commands
     /**
      * Search through database and find user with this username and delete them.
-     *
      * @param username username of user being deleted.
      */
     public static void removeUser(String username) {
