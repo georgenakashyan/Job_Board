@@ -1,7 +1,6 @@
 package com.group.job_board;
 
 import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,7 +8,6 @@ import javafx.scene.image.ImageView;
 
 public class LoginMenuController {
 
-    // tempory variable to hold the password
     private String password;
     @FXML
     private TextField email;
@@ -32,7 +30,6 @@ public class LoginMenuController {
         password = "";
     }
 
-    //Login button
     @FXML
     private void switchJobPostingMenu() throws IOException {
         String errorCode = checkValueProblems();

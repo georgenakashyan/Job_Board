@@ -1,10 +1,5 @@
 package com.group.job_board;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-
 /**
  *
  * @author main

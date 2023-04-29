@@ -50,7 +50,6 @@ public class FirestoreContext {
     public static void login(String email, String password) {
         try {
             CollectionReference userTable = App.fStore.collection("Users");
-            FirebaseAuth auth = FirebaseAuth.getInstance();
             Query emailPassMatch = userTable.whereEqualTo("email", email).whereEqualTo("password", password);
             ApiFuture<QuerySnapshot> qsnapshot = emailPassMatch.get();
             for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
@@ -65,12 +64,8 @@ public class FirestoreContext {
                         App.currentUser = doc.toObject(Moderator.class);
                         break;
                 }
-                //Sign in successful, Update GUI
-                //Set current user variable.
             }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ExecutionException ex) {
+        } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
