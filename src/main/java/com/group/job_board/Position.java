@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.group.job_board;
 
 /**
@@ -17,8 +13,12 @@ public class Position {
             town,
             state,
             remote;
+    int spots, jobID;
     
-    public Position(String company, String title, String description, String pay, String street, String town, String state, String remote) {
+    public Position() { 
+    }
+
+    public Position(String company, String title, String description, String pay, String street, String town, String state, String remote, int spots, int jobID) {
         this.company = company;
         this.title = title;
         this.description = description;
@@ -27,6 +27,8 @@ public class Position {
         this.town = town;
         this.state = state;
         this.remote = remote;
+        this.spots = spots;
+        this.jobID = jobID;
     }
 
     public String getCompany() {
@@ -91,5 +93,21 @@ public class Position {
 
     public void setRemote(String remote) {
         this.remote = remote;
+    }
+
+    public int getSpots() {
+        return spots;
+    }
+
+    public void setSpots(int spots) {
+        this.spots = spots;
+    }
+
+    public int getJobID() {
+        return jobID;
+    }
+
+    public void setJobID(int jobID) {
+        this.jobID = jobID;
     }
 }
