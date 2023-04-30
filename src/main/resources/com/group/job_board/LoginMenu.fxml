@@ -33,7 +33,7 @@
                   <Font name="Apple Braille Outline 8 Dot" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="36.0" layoutY="101.0" text="Username">
+            <Label layoutX="36.0" layoutY="101.0" text="Email">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="14.0" />
                </font>
