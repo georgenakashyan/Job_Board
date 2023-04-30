@@ -322,8 +322,8 @@
                               </Label>
                               <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
                                  <children>
-                                    <TextField fx:id="oldPassword" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="Old Password" />
-                                    <TextField fx:id="newPassword" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="New Password" />
+                                    <TextField fx:id="oldPassword" prefHeight="26.0" prefWidth="295.0" promptText="Old Password" />
+                                    <TextField fx:id="newPassword" prefHeight="26.0" prefWidth="295.0" promptText="New Password" />
                                     <Button mnemonicParsing="false" onAction="#changePassword" text="Change password" />
                                  </children>
                               </VBox>
@@ -348,7 +348,8 @@
                         <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#SignOutButtonHandler" prefHeight="26.0" prefWidth="234.0" text="Sign out" />
-                              <Button mnemonicParsing="false" onAction="#DeleteAccountHandler" prefHeight="26.0" prefWidth="233.0" text="Delete Account" />
+                              <Label fx:id="deleteCheckLabel" text="Are you sure you want to delete your account?" textFill="RED" />
+                              <Button mnemonicParsing="false" onAction="#DeleteAccountHandler" prefHeight="26.0" prefWidth="233.0" style="-fx-background-color: RED; -fx-border-color: BLACK; -fx-border-width: 1;" text="Delete Account" textFill="WHITE" />
                            </children>
                            <HBox.margin>
                               <Insets />

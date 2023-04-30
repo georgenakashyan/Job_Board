@@ -2,6 +2,7 @@ package com.group.job_board;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
@@ -42,7 +43,12 @@ public class SettingsMenuController {
     private HBox moderation;
     
     @FXML
+    private Label deleteCheckLabel;
+    private int deleteCheck;
+    
+    @FXML
     private void initialize() {
+        deleteCheckLabel.setVisible(false);
         String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
         switch (s) {
             case "Applicant":
@@ -77,9 +83,14 @@ public class SettingsMenuController {
     
     @FXML
     private void DeleteAccountHandler() throws IOException{
-        FirestoreContext.removeUser(App.currentUser.username);
-        App.currentUser = null;
-        switchToLogInMenu();
+        if (deleteCheck < 1) {
+            deleteCheckLabel.setVisible(true);
+            deleteCheck++;
+        } else {
+            FirestoreContext.removeUser(App.currentUser.username);
+            App.currentUser = null;
+            switchToLogInMenu();
+        }
     }
     
     @FXML
