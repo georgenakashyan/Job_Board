@@ -2,24 +2,38 @@ package com.group.job_board;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  *
  * @author juilliardwu / george
  */
 public class SignUpMenuController {
+
     @FXML
     private TextField firstName;
     @FXML
     private TextField lastName;
+    @FXML
+    private TextField road;
+    @FXML
+    private TextField town;
+    @FXML
+    private TextField state;
+    @FXML
+    private TextField companyName;
     @FXML
     private TextField address;
     @FXML
@@ -36,7 +50,12 @@ public class SignUpMenuController {
     private TextField showReEnterPassword;
     @FXML
     private TextField hideReEnterPassword;
-    
+
+    @FXML
+    private HBox employerBox;
+    @FXML
+    private VBox applicantBox;
+
     @FXML
     private ImageView eyeCloseIcon;
     @FXML
@@ -45,7 +64,9 @@ public class SignUpMenuController {
     private ChoiceBox UserIdentityChoiceBox;
     @FXML
     private Label errorMessage;
-    
+
+    String password;
+    String rePassword;
     private Boolean passwordShowing;
     ObservableList<String> UserIdentity;
 
@@ -59,14 +80,21 @@ public class SignUpMenuController {
         eyeOpenIcon.setVisible(false);
         errorMessage.setText("");
         passwordShowing = false;
+        UserIdentity = FXCollections.observableArrayList("Employer", "Applicant");
         UserIdentityChoiceBox.setItems(UserIdentity);
-        
+        UserIdentityChoiceBox.setValue("Applicant");
+        employerBox.setDisable(true);
+        employerBox.setVisible(false);
+        UserIdentityChoiceBox.setOnAction(event -> {
+            userIdentityOnAction();
+        });
     }
-    
+
     @FXML
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
     }
+
     @FXML
     private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
         String errorCode = checkValueProblems();
@@ -74,56 +102,98 @@ public class SignUpMenuController {
             errorMessage.setText(errorCode);
             return;
         }
-        String password = "";
+        // Inserting into DB
+        HashMap<String, String> map = new HashMap();
+        if (UserIdentityChoiceBox.getValue().equals("Applicant")) {
+            map.put("accountType", "Applicant");
+            map.put("email", email.getText());
+            map.put("username", userName.getText());
+            map.put("password", password);
+            map.put("firstName", firstName.getText());
+            map.put("lastName", lastName.getText());
+            map.put("phone", phoneNumber.getText());
+            map.put("road", road.getText());
+            map.put("town", town.getText());
+            map.put("state", state.getText());
 
-        //Gets password from either shown or hidden text fields
-        if(showPassword.getText().equals(""))
-            password = hidePassword.getText();
-        else
-            password = showPassword.getText();
+            FirestoreContext.addUser(map);
+            errorMessage.setText("New account, " + userName.getText() + ", created.");
+        } else if (UserIdentityChoiceBox.getValue().equals("Employer")) {
+            map.put("accountType", "Employer");
+            map.put("email", email.getText());
+            map.put("username", userName.getText());
+            map.put("password", password);
+            map.put("companyname", companyName.getText());
+            map.put("phone", phoneNumber.getText());
+            map.put("road", road.getText());
+            map.put("town", town.getText());
+            map.put("state", state.getText());
 
-        if(UserIdentityChoiceBox.getValue().equals("Applicant")) {
-            
-        } else if(UserIdentityChoiceBox.getValue().equals("Employer")) {
-            
-        }
-        
-        //After successfully creating account, automatically log them in.
-        try {
-            switchToLogInMenu();
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpMenuController.class.getName()).log(Level.SEVERE, null, ex);
+            FirestoreContext.addUser(map);
+            errorMessage.setText("New account, " + userName.getText() + ", created.");
         }
     }
-    
+
     private String checkValueProblems() {
-        if (firstName.getText().equals(""))
-            return "First Name was left blank";
-        if (lastName.getText().equals(""))
-            return "Last Name was left blank";
-        if (address.getText().equals(""))
+        if (UserIdentityChoiceBox.getValue().equals("Applicant")) {
+            if (firstName.getText().equals("")) {
+                return "First Name was left blank";
+            }
+            if (lastName.getText().equals("")) {
+                return "Last Name was left blank";
+            }
+        } else {
+            if (companyName.getText().equals("")) {
+                return "Company Name was left blank";
+            }
+        }
+        if (address.getText().equals("")) {
             return "Address was left blank";
-        if (email.getText().equals(""))
+        }
+        if (email.getText().equals("")) {
             return "Email was left blank";
-        if (phoneNumber.getText().equals(""))
+        }
+        if (phoneNumber.getText().equals("")) {
             return "Phone Number was left blank";
-        if (userName.getText().equals(""))
+        }
+        if (userName.getText().equals("")) {
             return "Username was left blank";
-        if (UserIdentityChoiceBox.getValue() == null)
+        }
+        if (UserIdentityChoiceBox.getValue() == null) {
             return "Please select an account type";
-        if (passwordBlank())
+        }
+        if (passwordBlank()) {
             return "Password was left blank";
-        if (!passwordMatch())
+        }
+        if (!passwordMatch()) {
             return "Passwords don't match";
-        //Sets error code to be blank.
+        }
+        try {
+            if (FirestoreContext.userExists(email.getText(), userName.getText()))
+                return "This User already exists.";
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(SignUpMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return "";
     }
 
-    
+    private void userIdentityOnAction() {
+        if (UserIdentityChoiceBox.getValue().equals("Applicant")) {
+            employerBox.setDisable(true);
+            employerBox.setVisible(false);
+            applicantBox.setDisable(false);
+            applicantBox.setVisible(true);
+        } else {
+            employerBox.setDisable(false);
+            employerBox.setVisible(true);
+            applicantBox.setDisable(true);
+            applicantBox.setVisible(false);
+        }
+    }
     
     /**
-     * When user clicks either the open or closed eye icon
-     * the password visibility will flip.
+     * When user clicks either the open or closed eye icon the password
+     * visibility will flip.
      */
     @FXML
     private void eyeOnAction() {
@@ -134,10 +204,6 @@ public class SignUpMenuController {
             eyeOpenIcon.setVisible(false);
             hidePassword.setVisible(true);
             hideReEnterPassword.setVisible(true);
-            String password = showPassword.getText();
-            hidePassword.setText(password);
-            password = showReEnterPassword.getText();
-            hideReEnterPassword.setText(password);
             passwordShowing = false;
         } else {
             showPassword.setVisible(true);
@@ -146,10 +212,6 @@ public class SignUpMenuController {
             eyeOpenIcon.setVisible(true);
             hidePassword.setVisible(false);
             hideReEnterPassword.setVisible(false);
-            String password = hidePassword.getText();
-            showPassword.setText(password);
-            password = hideReEnterPassword.getText();
-            showReEnterPassword.setText(password);
             passwordShowing = true;
         }
     }
@@ -164,9 +226,13 @@ public class SignUpMenuController {
             p1 = hideReEnterPassword.getText();
             p2 = hidePassword.getText();
         }
-        return (p1.equals(p2));
+        if (p1.equals(p2)) {
+            password = p1;
+            return true;
+        }
+        return false;
     }
-    
+
     private boolean passwordBlank() {
         String p1, p2;
         if (passwordShowing) {
