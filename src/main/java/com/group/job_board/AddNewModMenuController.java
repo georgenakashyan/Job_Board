@@ -97,7 +97,7 @@ public class AddNewModMenuController {
         if (password.getText().equals(""))
             return "Password was left blank";
         try {
-            if (FirestoreContext.userExists(email.getText(), password.getText()))
+            if (FirestoreContext.userExists(email.getText(), username.getText()))
                 return "This Moderator already exists";
         } catch (InterruptedException ex) {
             Logger.getLogger(AddNewModMenuController.class.getName()).log(Level.SEVERE, null, ex);
