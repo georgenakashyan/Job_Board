@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -37,9 +38,39 @@ public class PostingNewJobMenuController {
     private TextField Home;
     @FXML
     private TextField setting;
-
     @FXML
     private Label PostJob;
+    @FXML
+    private HBox postingNewJob;
+    @FXML
+    private HBox addNewMod;
+    @FXML
+    private HBox moderation;
+    
+    @FXML
+    private void initialize() {
+        String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
+        switch (s) {
+            case "Applicant":
+                postingNewJob.setDisable(true);
+                postingNewJob.setVisible(false);
+                addNewMod.setDisable(true);
+                addNewMod.setVisible(false);
+                moderation.setDisable(true);
+                moderation.setVisible(false);
+                break;
+            case "Employer":
+                addNewMod.setDisable(true);
+                addNewMod.setVisible(false);
+                moderation.setDisable(true);
+                moderation.setVisible(false);
+                break;
+            case "Moderator":
+                postingNewJob.setDisable(true);
+                postingNewJob.setVisible(false);
+                break;
+        }
+    }
     
     @FXML
     private void UploadJobButtomHandler() {

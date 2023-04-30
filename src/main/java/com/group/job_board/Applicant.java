@@ -4,7 +4,7 @@ package com.group.job_board;
  *
  * @author main
  */
-public class Applicant extends ModeratableUser implements Jobs {
+public class Applicant extends ModeratableUser {
 
     private String firstName, lastName;
 
@@ -38,25 +38,5 @@ public class Applicant extends ModeratableUser implements Jobs {
     }
 
     public void deleteProfile() {
-    }
-
-    @Override
-    public Jobs addJob() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Jobs search() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void apply() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void viewJob() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -10,7 +10,6 @@ import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,9 +22,10 @@ import java.util.logging.Logger;
  * @author George, Timmothy
  */
 public class FirestoreContext {
-    
+
     /**
      * Create a connection to the database.
+     *
      * @return the Firestore object that acts as the connection.
      */
     public static Firestore connectToDB() {
@@ -43,7 +43,9 @@ public class FirestoreContext {
     }
 
     /**
-     * Logs a user in by setting the app's global user variable to a new user with their info.
+     * Logs a user in by setting the app's global user variable to a new user
+     * with their info.
+     *
      * @param email email login
      * @param password password login
      */
@@ -79,38 +81,43 @@ public class FirestoreContext {
 
     /**
      * Account creation for users.
+     *
      * @param u Users of which is being added.
      */
     public static void addUser(Users u) {
         try {
-            Firestore db = connectToDB();
-            switch (u.getClass().getTypeName()) {
-                case "Employer":
-                    Employer emp = (Employer) u;
-                    break;
-                case "Applicant":
-                    Applicant apl = (Applicant) u;
-                    break;
-                case "Moderator":
-                    Moderator mod = (Moderator) u;
-                    break;
+            CollectionReference userTable = App.fStore.collection("Users");
+            Query emailPassMatch = userTable.whereEqualTo("email", u.email).whereEqualTo("username", u.username);
+            ApiFuture<QuerySnapshot> qsnapshot = emailPassMatch.get();
+            for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
+                switch (u.getClass().toString().replace("class com.group.job_board.", "")) {
+                    case "Employer":
+                        Employer emp = (Employer) u;
+                        break;
+                    case "Applicant":
+                        Applicant apl = (Applicant) u;
+                        break;
+                    case "Moderator":
+                        Moderator mod = (Moderator) u;
+                        break;
+                }
+                ApiFuture<WriteResult> future = App.fStore.collection("Users").document().set(u);
+                // block on response if required
+                System.out.println("Update time : " + future.get().getUpdateTime());
             }
-            ApiFuture<WriteResult> future = db.collection("Users").document().set(u);
-            // block on response if required
-            System.out.println("Update time : " + future.get().getUpdateTime());
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-   /**
-    * Creation of a new job posting.
-    * @param p job posting object with info to be added into the database.
-    */
+    /**
+     * Creation of a new job posting.
+     *
+     * @param p job posting object with info to be added into the database.
+     */
     public static void addJobPosting(Position p) {
         try {
-            Firestore db = connectToDB();
-            ApiFuture<WriteResult> future = db.collection("JobPostings").document().set(p);
+            ApiFuture<WriteResult> future = App.fStore.collection("JobPostings").document().set(p);
             System.out.println("Update time : " + future.get().getUpdateTime());
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,12 +126,12 @@ public class FirestoreContext {
 
     /**
      * Removes an existing job posting from the database.
+     *
      * @param jobID ID number to identify the job that will be removed.
      */
     public static void removeJobPosting(int jobID) {
         try {
             CollectionReference userTable = App.fStore.collection("JobPostings");
-            FirebaseAuth auth = FirebaseAuth.getInstance();
             Query jobIDMatch = userTable.whereEqualTo("jobID", jobID);
             ApiFuture<QuerySnapshot> qsnapshot = jobIDMatch.get();
             for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
@@ -134,17 +141,16 @@ public class FirestoreContext {
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /**
      * Search through database and find user with this username and delete them.
+     *
      * @param username username of user being deleted.
      */
     public static void removeUser(String username) {
         try {
             CollectionReference userTable = App.fStore.collection("Users");
-            FirebaseAuth auth = FirebaseAuth.getInstance();
             Query usernameMatch = userTable.whereEqualTo("username", username);
             ApiFuture<QuerySnapshot> qsnapshot = usernameMatch.get();
             for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
@@ -152,7 +158,8 @@ public class FirestoreContext {
                 System.out.printf("User %s has been successfully deleted.\n", username);
             }
         } catch (InterruptedException | ExecutionException ex) {
-            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FirestoreContext.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

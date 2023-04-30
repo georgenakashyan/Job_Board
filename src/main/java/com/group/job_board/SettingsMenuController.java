@@ -3,6 +3,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 /**
  *
@@ -33,9 +34,38 @@ public class SettingsMenuController {
     private Button SignOutButton;
     @FXML
     private Button DeleteAccountButton;
+    @FXML
+    private HBox postingNewJob;
+    @FXML
+    private HBox addNewMod;
+    @FXML
+    private HBox moderation;
     
     @FXML
     private void initialize() {
+        String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
+        switch (s) {
+            case "Applicant":
+                postingNewJob.setDisable(true);
+                postingNewJob.setVisible(false);
+                addNewMod.setDisable(true);
+                addNewMod.setVisible(false);
+                moderation.setDisable(true);
+                moderation.setVisible(false);
+                break;
+            case "Employer":
+                addNewMod.setDisable(true);
+                addNewMod.setVisible(false);
+                moderation.setDisable(true);
+                moderation.setVisible(false);
+                break;
+
+            case "Moderator":
+                postingNewJob.setDisable(true);
+                postingNewJob.setVisible(false);
+                break;
+        }
+        
         //Set all textfield variables to show user's current information.
     }
    
@@ -46,8 +76,10 @@ public class SettingsMenuController {
     }
     
     @FXML
-    private void DeleteAccountHandler(){
-        
+    private void DeleteAccountHandler() throws IOException{
+        FirestoreContext.removeUser(App.currentUser.username);
+        App.currentUser = null;
+        switchToLogInMenu();
     }
     
     @FXML

@@ -4,42 +4,26 @@ package com.group.job_board;
  *
  * @author main
  */
-public class Employer extends ModeratableUser implements Jobs {
+public class Employer extends ModeratableUser {
 
-    // Employer variables
-    String companyName;
+    String companyname;
 
-    // constructor
     public Employer() {
     }
     
-
     public String getCompanyName() {
-        return companyName;
+        return companyname;
     }
 
     public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+        this.companyname = companyName;
     }
 
-    // ToDo write code for addPosition() and viewPosition()
-    @Override
-    public Jobs addJob() {
+    public void addJob() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public Jobs search() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void apply() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void viewJob() {
+    public void removeJob() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

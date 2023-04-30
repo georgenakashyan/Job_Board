@@ -74,7 +74,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToPostingNewJobMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox fx:id="postingNewJob" alignment="CENTER_LEFT" onMouseClicked="#switchToPostingNewJobMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -97,7 +97,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToAddNewModMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox fx:id="addNewMod" alignment="CENTER_LEFT" onMouseClicked="#switchToAddNewModMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -120,7 +120,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToModerationMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox fx:id="moderation" alignment="CENTER_LEFT" onMouseClicked="#switchToModerationMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -150,15 +150,12 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
+            <VBox prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #b3b3b3 #b3b3b3 #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets />
                </BorderPane.margin>
                <children>
-                  <VBox prefHeight="668.0" prefWidth="427.0" style="-fx-background-color: #b3b3b3 #b3b3b3;">
+                  <VBox prefHeight="668.0" prefWidth="427.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                            <children>

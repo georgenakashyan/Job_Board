@@ -4,17 +4,46 @@ import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 
 public class JobPostingMenuController {
+
     @FXML
-    ListView listviewJobs;
-    ObservableList<String> items;
-    
+    private ListView listviewJobs;
     @FXML
-    public void initialize(){
+    private HBox postingNewJob;
+    @FXML
+    private HBox addNewMod;
+    @FXML
+    private HBox moderation;
+    private ObservableList<String> items;
+
+    @FXML
+    private void initialize() {
         items = listviewJobs.getItems();
+        String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
+        switch (s) {
+            case "Applicant":
+                postingNewJob.setDisable(true);
+                postingNewJob.setVisible(false);
+                addNewMod.setDisable(true);
+                addNewMod.setVisible(false);
+                moderation.setDisable(true);
+                moderation.setVisible(false);
+                break;
+            case "Employer":
+                addNewMod.setDisable(true);
+                addNewMod.setVisible(false);
+                moderation.setDisable(true);
+                moderation.setVisible(false);
+                break;
+            case "Moderator":
+                postingNewJob.setDisable(true);
+                postingNewJob.setVisible(false);
+                break;
+        }
     }
-    
+
     @FXML
     private void switchToJobPostingMenu() throws IOException {
         App.setRoot("JobPostingMenu");

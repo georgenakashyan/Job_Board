@@ -76,7 +76,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToPostingNewJobMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox fx:id="postingNewJob" alignment="CENTER_LEFT" onMouseClicked="#switchToPostingNewJobMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -99,7 +99,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToAddNewModMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox fx:id="addNewMod" alignment="CENTER_LEFT" onMouseClicked="#switchToAddNewModMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -122,7 +122,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToModerationMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox fx:id="moderation" alignment="CENTER_LEFT" onMouseClicked="#switchToModerationMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -135,7 +135,7 @@
                               <Image url="@../images/gearIcon.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="29.0" prefWidth="149.0" text="Moderation" textFill="#ede8e8">
+                        <Label onMouseClicked="#switchToModerationMenu" prefHeight="29.0" prefWidth="149.0" text="Moderation" textFill="#ede8e8">
                            <font>
                               <Font size="18.0" />
                            </font>
