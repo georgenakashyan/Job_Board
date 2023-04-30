@@ -17,6 +17,22 @@ public class Moderator extends Users {
         this.lastName = lastName;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
     public void addModerator(String firstName, String lastName, String email, String phoneNumber, String password, String username) {
 
     }

@@ -149,14 +149,11 @@
          </left>
          <center>
             <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
                <BorderPane.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets />
                </BorderPane.margin>
                <children>
-                  <VBox prefHeight="668.0" prefWidth="427.0" style="-fx-background-color: #b3b3b3 #b3b3b3;">
+                  <VBox prefHeight="696.0" prefWidth="836.0" style="-fx-background-color: #b3b3b3 #b3b3b3;">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                            <children>
@@ -167,7 +164,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="firstName" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -190,7 +187,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="lastName" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -213,7 +210,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="jobPay1" editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="phone" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -236,7 +233,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="email" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -259,7 +256,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="username" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -282,7 +279,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="password" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -303,7 +300,8 @@
                            <children>
                               <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="234.0" text="Add moderator" />
+                                    <Button mnemonicParsing="false" onAction="#addModerator" prefHeight="26.0" prefWidth="234.0" text="Add moderator" />
+                                    <Label fx:id="errorMessage" textFill="RED" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />

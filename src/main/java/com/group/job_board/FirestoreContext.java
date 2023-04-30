@@ -13,6 +13,7 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -72,6 +73,13 @@ public class FirestoreContext {
         }
     }
 
+    public static boolean userExists(String email, String password) throws InterruptedException, ExecutionException {
+        CollectionReference userTable = App.fStore.collection("Users");
+        Query emailPassMatch = userTable.whereEqualTo("email", email).whereEqualTo("password", password);
+        ApiFuture<QuerySnapshot> qsnapshot = emailPassMatch.get();
+        return !qsnapshot.get().getDocuments().isEmpty();
+    }
+
     /**
      * Logs user out.
      */
@@ -82,32 +90,10 @@ public class FirestoreContext {
     /**
      * Account creation for users.
      *
-     * @param u Users of which is being added.
+     * @param map Map of user data being added
      */
-    public static void addUser(Users u) {
-        try {
-            CollectionReference userTable = App.fStore.collection("Users");
-            Query emailPassMatch = userTable.whereEqualTo("email", u.email).whereEqualTo("username", u.username);
-            ApiFuture<QuerySnapshot> qsnapshot = emailPassMatch.get();
-            for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
-                switch (u.getClass().toString().replace("class com.group.job_board.", "")) {
-                    case "Employer":
-                        Employer emp = (Employer) u;
-                        break;
-                    case "Applicant":
-                        Applicant apl = (Applicant) u;
-                        break;
-                    case "Moderator":
-                        Moderator mod = (Moderator) u;
-                        break;
-                }
-                ApiFuture<WriteResult> future = App.fStore.collection("Users").document().set(u);
-                // block on response if required
-                System.out.println("Update time : " + future.get().getUpdateTime());
-            }
-        } catch (InterruptedException | ExecutionException ex) {
-            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public static void addUser(Map<String, String> map) {
+        App.fStore.collection("Users").document(map.get("username")).set(map);
     }
 
     /**
