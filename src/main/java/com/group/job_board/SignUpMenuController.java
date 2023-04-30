@@ -35,8 +35,6 @@ public class SignUpMenuController {
     @FXML
     private TextField companyName;
     @FXML
-    private TextField address;
-    @FXML
     private TextField email;
     @FXML
     private TextField phoneNumber;
@@ -146,9 +144,6 @@ public class SignUpMenuController {
             if (companyName.getText().equals("")) {
                 return "Company Name was left blank";
             }
-        }
-        if (address.getText().equals("")) {
-            return "Address was left blank";
         }
         if (email.getText().equals("")) {
             return "Email was left blank";
