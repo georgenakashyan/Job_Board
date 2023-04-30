@@ -28,7 +28,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </ImageView>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="288.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToJobPostingMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -51,7 +51,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="278.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToSettingsMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -73,11 +73,8 @@
                            </padding>
                         </Label>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToPostingNewJobMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -91,6 +88,52 @@
                            </image>
                         </ImageView>
                         <Label prefHeight="29.0" prefWidth="149.0" text="Post New Job" textFill="#ede8e8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToAddNewModMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../images/gearIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="29.0" prefWidth="149.0" text="Add New Mod" textFill="#ede8e8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToModerationMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../images/gearIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="29.0" prefWidth="149.0" text="Moderation" textFill="#ede8e8">
                            <font>
                               <Font size="18.0" />
                            </font>

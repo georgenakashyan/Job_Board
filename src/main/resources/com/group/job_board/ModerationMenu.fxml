@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.AddNewModMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.AddNewModMenuController">
    <children>
       <BorderPane prefHeight="673.0" prefWidth="1039.0">
          <left>
@@ -26,7 +26,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </ImageView>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="288.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToJobPostingMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -49,7 +49,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="278.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToSettingsMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -71,11 +71,8 @@
                            </padding>
                         </Label>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToPostingNewJobMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -98,7 +95,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="172.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToAddNewModMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -121,7 +118,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="220.0" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#switchToModerationMenu" prefHeight="38.0" prefWidth="160.0" spacing="10.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -152,11 +149,8 @@
          </left>
          <center>
             <VBox prefHeight="668.0" prefWidth="427.0" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
                <BorderPane.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets />
                </BorderPane.margin>
                <children>
                   <VBox prefHeight="668.0" prefWidth="427.0" style="-fx-background-color: #b3b3b3 #b3b3b3;">

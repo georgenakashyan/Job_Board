@@ -40,27 +40,34 @@ public class PostingNewJobMenuController {
 
     @FXML
     private Label PostJob;
-
-    @FXML
-    private void switchToJobPosting() throws IOException {
-        if (PostJob.isPressed() == true) {
-            App.setRoot("JobPostingMenu");
-        }
-
-    }
-
+    
     @FXML
     private void UploadJobButtomHandler() {
 
     }
-    
+
+    @FXML
+    private void switchToJobPostingMenu() throws IOException {
+        App.setRoot("JobPostingMenu");
+    }
+
     @FXML
     private void switchToSettingsMenu() throws IOException {
         App.setRoot("SettingsMenu");
     }
     
     @FXML
-    private void switchToJobPostingMenu() throws IOException {
-        App.setRoot("JobPostingMenu");
+    private void switchToPostingNewJobMenu() throws IOException {
+        App.setRoot("PostingNewJobMenu");
+    }
+    
+    @FXML
+    private void switchToAddNewModMenu() throws IOException {
+        App.setRoot("AddNewModMenu");
+    }
+    
+    @FXML
+    private void switchToModerationMenu() throws IOException {
+        App.setRoot("ModerationMenu");
     }
 }
