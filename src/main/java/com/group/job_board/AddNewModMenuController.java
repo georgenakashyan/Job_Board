@@ -73,11 +73,12 @@ public class AddNewModMenuController {
         HashMap<String, String> map = new HashMap();
         map.put("accountType", "Moderator");
         map.put("email", email.getText());
+        map.put("username", username.getText());
+        map.put("password", password.getText());
         map.put("firstName", firstName.getText());
         map.put("lastName", lastName.getText());
-        map.put("password", password.getText());
         map.put("phone", phone.getText());
-        map.put("username", username.getText());
+        
         FirestoreContext.addUser(map);
         errorMessage.setText("New Moderator account, " + username.getText() + ", created.");
     }
