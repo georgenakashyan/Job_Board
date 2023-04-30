@@ -73,11 +73,11 @@ public class FirestoreContext {
         }
     }
 
-    public static boolean userExists(String email, String password) throws InterruptedException, ExecutionException {
+    public static boolean userExists(String email, String username) throws InterruptedException, ExecutionException {
         CollectionReference userTable = App.fStore.collection("Users");
-        Query emailPassMatch = userTable.whereEqualTo("email", email).whereEqualTo("password", password);
-        ApiFuture<QuerySnapshot> qsnapshot = emailPassMatch.get();
-        return !qsnapshot.get().getDocuments().isEmpty();
+        ApiFuture<QuerySnapshot> emailSnapshot = userTable.whereEqualTo("email", email).get();
+        ApiFuture<QuerySnapshot> userSnapshot = userTable.whereEqualTo("username", username).get();
+        return (!emailSnapshot.get().getDocuments().isEmpty() || !userSnapshot.get().getDocuments().isEmpty());
     }
 
     /**
