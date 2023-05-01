@@ -19,27 +19,33 @@ public class PostingNewJobMenuController {
 
     @FXML
     private Button UploadJob;
-
-    @FXML
-    private TextField jobPay;
     @FXML
     private TextField JobTitle;
     @FXML
     private TextField JobDescription;
     @FXML
+    private TextField jobPay;
+    @FXML
+    private TextField spots;
+    @FXML
     private ChoiceBox JobType;
-    ObservableList<String> jt = FXCollections.observableArrayList("Full Time", "Part Time", "Intern");
+    private ObservableList<String> jt;
     @FXML
     private ChoiceBox WorkPlaceType;
-    ObservableList<String> wpt = FXCollections.observableArrayList("On-site", "Remote", "Hybrid");
+    private ObservableList<String> wpt;
     @FXML
-    private TextField JobLocation;
+    private TextField town;
+    @FXML
+    private TextField street;
+    @FXML
+    private TextField state;
     @FXML
     private TextField Home;
     @FXML
     private TextField setting;
     @FXML
     private Label PostJob;
+    
     @FXML
     private HBox postingNewJob;
     @FXML
@@ -49,6 +55,11 @@ public class PostingNewJobMenuController {
     
     @FXML
     private void initialize() {
+        jt = FXCollections.observableArrayList("Full Time", "Part Time", "Intern");
+        JobType.setItems(jt);
+        wpt = FXCollections.observableArrayList("On-site", "Remote", "Hybrid");
+        WorkPlaceType.setItems(wpt);
+        
         String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
         switch (s) {
             case "Applicant":
@@ -73,7 +84,7 @@ public class PostingNewJobMenuController {
     }
     
     @FXML
-    private void UploadJobButtomHandler() {
+    private void UploadJobButtonHandler() {
 
     }
 
