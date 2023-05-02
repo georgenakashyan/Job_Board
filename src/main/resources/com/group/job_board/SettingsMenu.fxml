@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SettingsMenuController">
    <children>
-      <BorderPane prefHeight="673.0" prefWidth="1039.0">
+      <BorderPane prefHeight="490.0" prefWidth="720.0">
          <left>
-            <VBox fx:id="menuVbox" prefWidth="203.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
+            <VBox fx:id="menuVbox" prefWidth="150.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -82,13 +82,13 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="668.0" prefWidth="427.0" style="-fx-background-color: #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="668.0" prefWidth="570.0" style="-fx-background-color: #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="First Name">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="First Name">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -109,9 +109,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Last Name">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Last Name">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -132,9 +132,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Address">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Address">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -155,9 +155,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Email Address">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Email Address">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -176,11 +176,11 @@
                         <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                  <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Phone Number">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Phone Number">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -201,9 +201,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Username">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Username">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -224,9 +224,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Account Type">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Account Type">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -247,9 +247,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="530.0" style="-fx-background-color: #a1a1a1;">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Password">
+                              <Label prefHeight="30.0" prefWidth="150.0" text="Password">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>

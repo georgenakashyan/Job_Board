@@ -24,7 +24,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FirestoreContext fs = new FirestoreContext();
         fStore =  fs.connectToDB();
-        scene = new Scene(loadFXML("LoginMenu"), 640, 480);
+        scene = new Scene(loadFXML("LoginMenu"), 720, 480);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         //stage.setResizable(false);
