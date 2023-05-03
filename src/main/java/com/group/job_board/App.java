@@ -20,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         fStore =  FirestoreContext.connectToDB();
-        scene = new Scene(loadFXML("LoginMenu"), 640, 480);
+        scene = new Scene(loadFXML("LoginMenu"), 750, 500);
         stage.setScene(scene);
         stage.show();
     }

@@ -17,9 +17,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SignUpMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.SignUpMenuController">
    <left>
-      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="230.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="144.0" prefWidth="206.0" text="Welcome to Job Board  " textAlignment="CENTER" textFill="#edeaea" wrapText="true">
                <font>
@@ -30,21 +30,21 @@
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="438.0" prefWidth="385.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="520.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="27.0" prefWidth="371.0" text="Sign Up" textFill="#1d0707">
+            <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="27.0" prefWidth="520.0" text="Sign Up" textFill="#1d0707">
                <font>
                   <Font name="Apple Braille Outline 8 Dot" size="22.0" />
                </font>
             </Label>
-            <VBox layoutX="27.0" layoutY="36.0" prefHeight="264.0" prefWidth="330.0" spacing="5.0">
+            <VBox layoutX="27.0" layoutY="36.0" prefHeight="264.0" prefWidth="500.0" spacing="5.0">
                <children>
                   <VBox fx:id="applicantBox" prefHeight="54.0" prefWidth="330.0" spacing="5.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="330.0">
                            <children>
                               <Label prefHeight="17.0" prefWidth="90.0" text="First Name" textOverrun="CLIP" />
-                              <TextField fx:id="firstName" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your First Name">
+                              <TextField fx:id="firstName" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your First Name">
                                  <effect>
                                     <InnerShadow>
                                        <color>
@@ -61,7 +61,7 @@
                         <HBox fx:id="applicantBox2" alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="330.0">
                            <children>
                               <Label prefHeight="17.0" prefWidth="90.0" text="Last Name" />
-                              <TextField fx:id="lastName" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Last Name">
+                              <TextField fx:id="lastName" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Last Name">
                                  <effect>
                                     <InnerShadow>
                                        <color>
@@ -80,7 +80,7 @@
                   <HBox fx:id="applicantBox21" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="90.0" text="Road" />
-                        <TextField fx:id="road" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Last Name">
+                        <TextField fx:id="road" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Last Name">
                            <effect>
                               <InnerShadow>
                                  <color>
@@ -94,7 +94,7 @@
                   <HBox fx:id="applicantBox22" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="90.0" text="Town" />
-                        <TextField fx:id="town" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Last Name">
+                        <TextField fx:id="town" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Last Name">
                            <effect>
                               <InnerShadow>
                                  <color>
@@ -108,7 +108,7 @@
                   <HBox fx:id="applicantBox23" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="90.0" text="State" />
-                        <TextField fx:id="state" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Last Name">
+                        <TextField fx:id="state" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Last Name">
                            <effect>
                               <InnerShadow>
                                  <color>
@@ -122,7 +122,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="90.0" text="Email" />
-                        <TextField fx:id="email" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Email">
+                        <TextField fx:id="email" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Email">
                            <effect>
                               <InnerShadow>
                                  <color>
@@ -139,7 +139,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="90.0" text="Phone" />
-                        <TextField fx:id="phoneNumber" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Phone Number">
+                        <TextField fx:id="phoneNumber" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Phone Number">
                            <effect>
                               <InnerShadow>
                                  <color>
@@ -160,7 +160,7 @@
                               <Font name="Apple Braille Outline 6 Dot" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="userName" prefHeight="26.0" prefWidth="210.0" promptText="Enter User Name">
+                        <TextField fx:id="userName" prefHeight="26.0" prefWidth="300.0" promptText="Enter User Name">
                            <effect>
                               <InnerShadow>
                                  <color>
@@ -176,10 +176,10 @@
                   </HBox>
                </children>
             </VBox>
-            <HBox fx:id="employerBox" alignment="CENTER_LEFT" layoutX="27.0" layoutY="66.0" prefHeight="28.0" prefWidth="358.0">
+            <HBox fx:id="employerBox" alignment="CENTER_LEFT" layoutX="27.0" layoutY="66.0" prefHeight="28.0" prefWidth="500.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="90.0" text="Company Name" textOverrun="CLIP" />
-                  <TextField fx:id="companyName" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Company Name">
+                  <TextField fx:id="companyName" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Company Name">
                      <effect>
                         <InnerShadow>
                            <color>
@@ -191,7 +191,7 @@
                </children>
             </HBox>
             <Label layoutX="28.0" layoutY="312.0" text="Password" />
-            <TextField fx:id="showPassword" layoutX="118.0" layoutY="307.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
+            <TextField fx:id="showPassword" layoutX="118.0" layoutY="307.0" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -200,7 +200,7 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <PasswordField fx:id="hidePassword" layoutX="118.0" layoutY="307.0" prefHeight="26.0" prefWidth="210.0" promptText="Enter Your Password">
+            <PasswordField fx:id="hidePassword" layoutX="118.0" layoutY="307.0" prefHeight="26.0" prefWidth="300.0" promptText="Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -209,7 +209,7 @@
                   </InnerShadow>
                </effect>
             </PasswordField>
-            <TextField fx:id="showReEnterPassword" layoutX="118.0" layoutY="341.0" prefHeight="26.0" prefWidth="210.0" promptText="Re-Enter Your Password">
+            <TextField fx:id="showReEnterPassword" layoutX="118.0" layoutY="341.0" prefHeight="26.0" prefWidth="300.0" promptText="Re-Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -218,7 +218,7 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <PasswordField fx:id="hideReEnterPassword" layoutX="118.0" layoutY="341.0" prefHeight="26.0" prefWidth="210.0" promptText="Re-Enter Your Password">
+            <PasswordField fx:id="hideReEnterPassword" layoutX="118.0" layoutY="341.0" prefHeight="26.0" prefWidth="300.0" promptText="Re-Enter Your Password">
                <effect>
                   <InnerShadow>
                      <color>
@@ -236,8 +236,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="88.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#switchToLogInMenu" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="Have an account? Sign In!" textFill="#1a62e9" />
-            <ImageView fx:id="eyeCloseIcon" fitHeight="21.0" fitWidth="20.0" layoutX="336.0" layoutY="310.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="165.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#switchToLogInMenu" prefHeight="32.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="Have an account? Sign In!" textFill="#1a62e9" />
+            <ImageView fx:id="eyeCloseIcon" fitHeight="21.0" fitWidth="20.0" layoutX="425.0" layoutY="310.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/DisabledEye.png" />
                </image>
@@ -245,7 +245,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="eyeOpenIcon" fitHeight="17.0" fitWidth="19.0" layoutX="336.0" layoutY="314.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="eyeOpenIcon" fitHeight="17.0" fitWidth="19.0" layoutX="425.0" layoutY="314.0" onMouseClicked="#eyeOnAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/EnabledEye.png" />
                </image>

@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PostingNewJobMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.PostingNewJobMenuController">
    <children>
-      <BorderPane prefHeight="673.0" prefWidth="1039.0">
+      <BorderPane prefHeight="500.0" prefWidth="750.0">
          <left>
-            <VBox fx:id="menuVbox" prefWidth="203.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
+            <VBox fx:id="menuVbox" prefHeight="500.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -150,14 +150,14 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #b3b3b3 #b3b3b3 #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="500.0" prefWidth="550.0" style="-fx-background-color: #b3b3b3 #b3b3b3 #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <VBox prefHeight="668.0" prefWidth="427.0">
+                  <VBox prefHeight="500.0" prefWidth="550.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
@@ -166,7 +166,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="JobTItle" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="JobTItle" prefHeight="26.0" prefWidth="350.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -180,7 +180,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="826.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="550.0">
                            <children>
                               <HBox fx:id="CompanyName" alignment="CENTER_LEFT" prefHeight="166.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
@@ -189,7 +189,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="JobDescription" alignment="TOP_LEFT" prefHeight="300.0" prefWidth="349.0">
+                                    <TextField fx:id="JobDescription" alignment="TOP_LEFT" prefHeight="300.0" prefWidth="350.0">
                                        <cursor>
                                           <Cursor fx:constant="DEFAULT" />
                                        </cursor>
@@ -207,7 +207,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
@@ -216,7 +216,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="jobPay" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="jobPay" prefHeight="26.0" prefWidth="350.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -230,7 +230,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
@@ -239,7 +239,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="spots" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="spots" prefHeight="26.0" prefWidth="350.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -253,7 +253,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
@@ -262,7 +262,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <ChoiceBox fx:id="JobType" prefHeight="26.0" prefWidth="212.0" />
+                                    <ChoiceBox fx:id="JobType" prefHeight="26.0" prefWidth="350.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -276,7 +276,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="459.0" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="459.0" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
@@ -285,7 +285,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <ChoiceBox fx:id="WorkPlaceType" prefHeight="26.0" prefWidth="212.0" />
+                                    <ChoiceBox fx:id="WorkPlaceType" prefHeight="26.0" prefWidth="350.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -299,18 +299,18 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="201.0" text="Town">
+                                    <Label prefHeight="30.0" prefWidth="200.0" text="Town">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
                                     <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
                                        <children>
-                                          <TextField fx:id="town" prefHeight="26.0" prefWidth="295.0">
+                                          <TextField fx:id="town" prefHeight="26.0" prefWidth="350.0">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
@@ -330,18 +330,18 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="201.0" text="Street">
+                                    <Label prefHeight="30.0" prefWidth="200.0" text="Street">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
                                     <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
                                        <children>
-                                          <TextField fx:id="street" prefHeight="26.0" prefWidth="295.0">
+                                          <TextField fx:id="street" prefHeight="26.0" prefWidth="350.0">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
@@ -361,18 +361,18 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="786.0" style="-fx-background-color: #a1a1a1;">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="201.0" text="State">
+                                    <Label prefHeight="30.0" prefWidth="200.0" text="State">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
                                     <VBox prefHeight="78.0" prefWidth="300.0" spacing="10.0">
                                        <children>
-                                          <TextField fx:id="state" prefHeight="26.0" prefWidth="295.0">
+                                          <TextField fx:id="state" prefHeight="26.0" prefWidth="350.0">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
@@ -392,7 +392,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </HBox>
-                        <HBox prefHeight="83.0" prefWidth="406.0" spacing="10.0">
+                        <HBox prefHeight="100.0" prefWidth="550.0" spacing="10.0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>

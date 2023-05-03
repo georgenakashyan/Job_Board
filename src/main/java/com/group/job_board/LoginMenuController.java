@@ -25,6 +25,7 @@ public class LoginMenuController {
 
     @FXML
     private void initialize() {
+        errorMessage.setText("");
         showPassword.setVisible(false);
         eyeOpenIcon.setVisible(false);
         password = "";

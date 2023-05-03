@@ -12,15 +12,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
    <children>
-      <BorderPane prefHeight="673.0" prefWidth="1039.0">
+      <BorderPane prefHeight="500.0" prefWidth="750.0">
          <left>
-            <VBox fx:id="menuVbox" prefWidth="203.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
+            <VBox fx:id="menuVbox" prefHeight="500.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #1d2951 #1d2951;" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fx:id="menubar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -151,31 +150,22 @@
                </padding>
             </VBox>
          </left>
-         <right>
-            <Pane prefHeight="663.0" prefWidth="390.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox prefHeight="691.0" prefWidth="432.0" />
-               </children>
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </BorderPane.margin></Pane>
-         </right>
          <center>
-            <VBox prefHeight="663.0" prefWidth="429.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="663.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="400.0" promptText="Search" />
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <TextField prefHeight="26.0" prefWidth="250.0" promptText="Search" />
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/MagnifyingGlass.png" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <HBox prefHeight="100.0" prefWidth="280.0" spacing="20.0">
                      <children>
-                        <MenuButton mnemonicParsing="false" text="Distance">
+                        <MenuButton mnemonicParsing="false" text="State">
                           <items>
                             <MenuItem mnemonicParsing="false" text="5 mi" />
                             <MenuItem mnemonicParsing="false" text="10 mi" />
@@ -192,7 +182,7 @@
                               <MenuItem mnemonicParsing="false" text="Remote" />
                            </items>
                         </MenuButton>
-                        <MenuButton mnemonicParsing="false" text="Post Date">
+                        <MenuButton mnemonicParsing="false" text="Pay">
                            <items>
                               <MenuItem mnemonicParsing="false" text="Last 24 hrs" />
                               <MenuItem mnemonicParsing="false" text="Last Week" />
@@ -204,12 +194,12 @@
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <ScrollPane prefHeight="800.0" prefWidth="400.0">
+                  <ScrollPane prefHeight="800.0" prefWidth="280.0">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <content>
-                        <ListView fx:id="listviewJobs" prefHeight="800.0" prefWidth="390.0" />
+                        <ListView fx:id="listviewJobs" prefHeight="440.0" prefWidth="248.0" />
                      </content>
                   </ScrollPane>
                </children>
@@ -221,6 +211,9 @@
                </BorderPane.margin>
             </VBox>
          </center>
+         <right>
+            <VBox prefHeight="500.0" prefWidth="270.0" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>
