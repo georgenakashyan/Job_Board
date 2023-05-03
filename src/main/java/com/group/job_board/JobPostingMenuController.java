@@ -3,6 +3,7 @@ package com.group.job_board;
 import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 
@@ -14,6 +15,23 @@ public class JobPostingMenuController {
     private HBox postingNewJob;
     @FXML
     private HBox addNewMod;
+    @FXML
+    private Label JobTitle;
+    @FXML
+    private Label companyname;
+    @FXML
+    private Label state;
+    @FXML
+    private Label town;
+    @FXML
+    private Label road;
+    @FXML
+    private Label jobType;
+    @FXML
+    private Label paid;
+    @FXML
+    private Label description;
+            
     @FXML
     private HBox moderation;
     private ObservableList<String> items;
