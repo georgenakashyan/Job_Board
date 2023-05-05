@@ -6,6 +6,7 @@ import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
@@ -13,6 +14,8 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -146,6 +149,23 @@ public class FirestoreContext {
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class
                     .getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    // not sure this works needs testing
+    public void searchJobPostings(String searchKey) {
+        // gets all documents from a collection
+        try {
+            CollectionReference postingsTable = App.fStore.collection("JobPostings");
+            ApiFuture<QuerySnapshot> searchSnapshot = postingsTable.get();
+            List<QueryDocumentSnapshot> documents = searchSnapshot.get().getDocuments();
+            
+            for (QueryDocumentSnapshot doc : documents) {
+                if (doc.contains(searchKey)) // should check if the document contains the search field parameters
+                System.out.println(doc.getId() + " => " + doc.toObject(Position.class));
+            }
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
