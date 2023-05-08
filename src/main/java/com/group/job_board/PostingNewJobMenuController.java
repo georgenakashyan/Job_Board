@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
- * FXML Controller class
+ * FXML Controller class for posting new jobs
  *
  * @author juilliardwu
  */
@@ -53,6 +53,10 @@ public class PostingNewJobMenuController {
     @FXML
     private HBox moderation;
     
+     /**
+     * Method to initialize the scene
+     * 
+     */
     @FXML
     private void initialize() {
         jt = FXCollections.observableArrayList("Full Time", "Part Time", "Intern");
@@ -88,26 +92,51 @@ public class PostingNewJobMenuController {
 
     }
 
+    /**
+     * Method to switch to job postings scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToJobPostingMenu() throws IOException {
         App.setRoot("JobPostingMenu");
     }
 
+    /**
+     * Method to switch to settings scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToSettingsMenu() throws IOException {
         App.setRoot("SettingsMenu");
     }
     
+    /**
+     * Method to switch to new job posting menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToPostingNewJobMenu() throws IOException {
         App.setRoot("PostingNewJobMenu");
     }
     
+    /**
+     * Method to switch to add new moderator menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToAddNewModMenu() throws IOException {
         App.setRoot("AddNewModMenu");
     }
     
+    /**
+     * Method to switch to moderator menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToModerationMenu() throws IOException {
         App.setRoot("ModerationMenu");
