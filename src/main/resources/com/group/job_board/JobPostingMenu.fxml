@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.job_board.JobPostingMenuController">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="750.0">
          <left>
@@ -155,8 +155,8 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="250.0" promptText="Search" />
-                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <TextField fx:id="searchBar" prefHeight="26.0" prefWidth="250.0" promptText="Search" />
+                        <ImageView fitHeight="25.0" fitWidth="30.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/MagnifyingGlass.png" />
                            </image>

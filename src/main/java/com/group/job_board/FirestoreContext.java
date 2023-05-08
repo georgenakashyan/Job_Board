@@ -14,6 +14,7 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -152,20 +153,20 @@ public class FirestoreContext {
         }
     }
 
-    // not sure this works needs testing
-    public void searchJobPostings(String searchKey) {
-        // gets all documents from a collection
+    public static ArrayList<Position> searchJobPostings(String searchKey) {
+        ArrayList<Position> positions = new ArrayList<>();
         try {
             CollectionReference postingsTable = App.fStore.collection("JobPostings");
             ApiFuture<QuerySnapshot> searchSnapshot = postingsTable.get();
             List<QueryDocumentSnapshot> documents = searchSnapshot.get().getDocuments();
-            
             for (QueryDocumentSnapshot doc : documents) {
-                if (doc.contains(searchKey)) // should check if the document contains the search field parameters
-                System.out.println(doc.getId() + " => " + doc.toObject(Position.class));
+                if (doc.get("title").toString().toLowerCase().contains(searchKey.toLowerCase())) {
+                    positions.add(doc.toObject(Position.class));
+                }
             }
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return positions;
     }
 }

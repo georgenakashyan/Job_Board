@@ -1,10 +1,12 @@
 package com.group.job_board;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class JobPostingMenuController {
@@ -15,6 +17,8 @@ public class JobPostingMenuController {
     private HBox postingNewJob;
     @FXML
     private HBox addNewMod;
+    @FXML
+    private TextField searchBar;
     @FXML
     private Label JobTitle;
     @FXML
@@ -35,10 +39,12 @@ public class JobPostingMenuController {
     @FXML
     private HBox moderation;
     private ObservableList<String> items;
+    private ArrayList<Position> jobArr;
 
     @FXML
     private void initialize() {
         items = listviewJobs.getItems();
+        jobArr = new ArrayList<>();
         String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
         switch (s) {
             case "Applicant":
@@ -59,6 +65,16 @@ public class JobPostingMenuController {
                 postingNewJob.setDisable(true);
                 postingNewJob.setVisible(false);
                 break;
+        }
+    }
+    
+    @FXML
+    private void search() {
+        jobArr.clear();
+        items.clear();
+        jobArr = FirestoreContext.searchJobPostings(searchBar.getText());
+        for (Position p : jobArr) {
+            items.add(String.format("Company - %s\n   Job - %s\n   $%.2f", p.getCompany(), p.getTitle(), p.getPay()));
         }
     }
 

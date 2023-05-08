@@ -8,17 +8,17 @@ public class Position {
     String company,
             title,
             description,
-            pay,
             street,
             town,
             state,
             remote;
     int spots, jobID;
+    double pay;
     
     public Position() { 
     }
 
-    public Position(String company, String title, String description, String pay, String street, String town, String state, String remote, int spots, int jobID) {
+    public Position(String company, String title, String description, String street, String town, String state, String remote, double pay, int spots, int jobID) {
         this.company = company;
         this.title = title;
         this.description = description;
@@ -55,11 +55,11 @@ public class Position {
         this.description = description;
     }
 
-    public String getPay() {
+    public double getPay() {
         return pay;
     }
 
-    public void setPay(String pay) {
+    public void setPay(double pay) {
         this.pay = pay;
     }
 
