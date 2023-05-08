@@ -169,4 +169,54 @@ public class FirestoreContext {
         }
         return positions;
     }
+    
+    public static ArrayList<Position> searchEmployerJobPostings(String companyName, String searchKey) {
+        ArrayList<Position> positions = new ArrayList<>();
+        try {
+            CollectionReference postingsTable = App.fStore.collection("JobPostings");
+            ApiFuture<QuerySnapshot> searchSnapshot = postingsTable.get();
+            List<QueryDocumentSnapshot> documents = searchSnapshot.get().getDocuments();
+            for (QueryDocumentSnapshot doc : documents) {
+                if (doc.get("title").toString().toLowerCase().contains(searchKey.toLowerCase()) &&
+                        doc.get("company").toString().toLowerCase().contains(companyName.toLowerCase())) {
+                    positions.add(doc.toObject(Position.class));
+                }
+            }
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return positions;
+    }
+    
+    public static ArrayList<Position> getAllJobPostings() {
+        ArrayList<Position> positions = new ArrayList<>();
+        try {
+            CollectionReference postingsTable = App.fStore.collection("JobPostings");
+            ApiFuture<QuerySnapshot> searchSnapshot = postingsTable.get();
+            List<QueryDocumentSnapshot> documents = searchSnapshot.get().getDocuments();
+            for (QueryDocumentSnapshot doc : documents) {
+                positions.add(doc.toObject(Position.class));
+            }
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return positions;
+    }
+    
+    public static ArrayList<Position> getEmployerJobPostings(String companyName) {
+        ArrayList<Position> positions = new ArrayList<>();
+        try {
+            CollectionReference postingsTable = App.fStore.collection("JobPostings");
+            ApiFuture<QuerySnapshot> searchSnapshot = postingsTable.get();
+            List<QueryDocumentSnapshot> documents = searchSnapshot.get().getDocuments();
+            for (QueryDocumentSnapshot doc : documents) {
+                if (doc.get("company").toString().toLowerCase().contains(companyName.toLowerCase())) {
+                    positions.add(doc.toObject(Position.class));
+                }
+            }
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return positions;
+    }
 }

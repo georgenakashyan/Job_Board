@@ -66,13 +66,40 @@ public class JobPostingMenuController {
                 postingNewJob.setVisible(false);
                 break;
         }
+        loadJobs();
     }
     
     @FXML
     private void search() {
+        if (items.isEmpty()) {
+            loadJobs();
+            return;
+        }
         jobArr.clear();
         items.clear();
-        jobArr = FirestoreContext.searchJobPostings(searchBar.getText());
+        String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
+        if (s.contains("Employer")) {
+            Employer emp = (Employer)App.currentUser;
+            jobArr = FirestoreContext.searchEmployerJobPostings(emp.getCompanyName(), searchBar.getText());
+        } else {
+            jobArr = FirestoreContext.searchJobPostings(searchBar.getText());
+        }
+        for (Position p : jobArr) {
+            items.add(String.format("Company - %s\n   Job - %s\n   $%.2f", p.getCompany(), p.getTitle(), p.getPay()));
+        }
+    }
+    
+    private void loadJobs() {
+        jobArr.clear();
+        items.clear();
+        String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
+        if (s.equals("Employer")) {
+            Employer emp = (Employer)App.currentUser;
+            jobArr = FirestoreContext.getEmployerJobPostings(emp.getCompanyName());
+            return;
+        } else {
+            jobArr = FirestoreContext.getAllJobPostings();
+        }
         for (Position p : jobArr) {
             items.add(String.format("Company - %s\n   Job - %s\n   $%.2f", p.getCompany(), p.getTitle(), p.getPay()));
         }
