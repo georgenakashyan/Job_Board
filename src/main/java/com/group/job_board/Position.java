@@ -11,6 +11,7 @@ public class Position {
             street,
             town,
             state,
+            type,
             remote;
     int spots, jobID;
     double pay;
@@ -18,7 +19,7 @@ public class Position {
     public Position() { 
     }
 
-    public Position(String company, String title, String description, String street, String town, String state, String remote, double pay, int spots, int jobID) {
+    public Position(String company, String title, String description, String street, String town, String state, String remote, String type, double pay, int spots, int jobID) {
         this.company = company;
         this.title = title;
         this.description = description;
@@ -28,6 +29,7 @@ public class Position {
         this.state = state;
         this.remote = remote;
         this.spots = spots;
+        this.type = type;
         this.jobID = jobID;
     }
 
@@ -109,5 +111,13 @@ public class Position {
 
     public void setJobID(int jobID) {
         this.jobID = jobID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
