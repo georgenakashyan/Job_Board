@@ -7,7 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
- *
+ * FXML Controller class for settings menu
+ * 
  * @author juilliardwu
  */
 public class SettingsMenuController {
@@ -46,6 +47,9 @@ public class SettingsMenuController {
     private Label deleteCheckLabel;
     private int deleteCheck;
     
+    /**
+     * Method to initialize the scene
+     */
     @FXML
     private void initialize() {
         deleteCheckLabel.setVisible(false);
@@ -75,12 +79,22 @@ public class SettingsMenuController {
         //Set all textfield variables to show user's current information.
     }
    
+    /**
+     * Method to log the user out of the program
+     * 
+     * @throws IOException
+     */
     @FXML
     private void SignOutButtonHandler() throws IOException{
         FirestoreContext.logout();
         switchToLogInMenu();
     }
     
+    /**
+     * Method to delete a user account
+     * 
+     * @throws IOException
+     */
     @FXML
     private void DeleteAccountHandler() throws IOException{
         if (deleteCheck < 1) {
@@ -93,36 +107,70 @@ public class SettingsMenuController {
         }
     }
     
+    /**
+     * Method to change user password
+     * 
+     */
     @FXML
     private void changePassword() {
         
     }
     
+    /**
+     * Method to switch to login menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
     }
     
+    /**
+     * Method to switch to job posting menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToJobPostingMenu() throws IOException {
         App.setRoot("JobPostingMenu");
     }
 
+    /**
+     * Method to switch to settings scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToSettingsMenu() throws IOException {
         App.setRoot("SettingsMenu");
     }
     
+    /**
+     * Method to switch to new job posting menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToPostingNewJobMenu() throws IOException {
         App.setRoot("PostingNewJobMenu");
     }
     
+    /**
+     * Method to switch to add new moderator menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToAddNewModMenu() throws IOException {
         App.setRoot("AddNewModMenu");
     }
     
+    /**
+     * Method to switch to moderator menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToModerationMenu() throws IOException {
         App.setRoot("ModerationMenu");

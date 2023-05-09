@@ -5,7 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 
 /**
- *
+ * FXML Controller class for moderator's menu
+ * 
  * @author juilliardwu
  */
 public class ModerationMenuController {
@@ -17,6 +18,10 @@ public class ModerationMenuController {
     @FXML
     private HBox moderation;
     
+    /**
+     * Method to initialize the scene
+     * 
+     */
     @FXML
     private void initialize() {
         String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
@@ -42,26 +47,51 @@ public class ModerationMenuController {
         }
     }
     
+    /**
+     * Method to switch to job posting menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToJobPostingMenu() throws IOException {
         App.setRoot("JobPostingMenu");
     }
 
+    /**
+     * Method to switch to settings scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToSettingsMenu() throws IOException {
         App.setRoot("SettingsMenu");
     }
     
+    /**
+     * Method to switch to new job posting menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToPostingNewJobMenu() throws IOException {
         App.setRoot("PostingNewJobMenu");
     }
     
+    /**
+     * Method to switch to add new moderator menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToAddNewModMenu() throws IOException {
         App.setRoot("AddNewModMenu");
     }
     
+    /**
+     * Method to switch to moderator menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToModerationMenu() throws IOException {
         App.setRoot("ModerationMenu");

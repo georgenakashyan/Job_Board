@@ -17,7 +17,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
- *
+ * FXML Controller class for sign up menu
+ * 
  * @author juilliardwu / george
  */
 public class SignUpMenuController {
@@ -69,7 +70,7 @@ public class SignUpMenuController {
     ObservableList<String> UserIdentity;
 
     /**
-     * initialize set default as not showing password.
+     * initialize the scene--set default as not showing password.
      */
     @FXML
     private void initialize() {
@@ -88,11 +89,22 @@ public class SignUpMenuController {
         });
     }
 
+    /**
+     * Method to switch to login menu scene
+     * 
+     * @throws IOException
+     */
     @FXML
     private void switchToLogInMenu() throws IOException {
         App.setRoot("LoginMenu");
     }
 
+    /**
+     * Method to register a new user for the program and add the info to the database
+     * 
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     @FXML
     private void SignUpButtonHandler() throws ClassNotFoundException, SQLException {
         String errorCode = checkValueProblems();
@@ -132,6 +144,11 @@ public class SignUpMenuController {
         }
     }
 
+    /**
+     * Method to check if text field values are left blank
+     * 
+     * @return NULL
+     */
     private String checkValueProblems() {
         if (UserIdentityChoiceBox.getValue().equals("Applicant")) {
             if (firstName.getText().equals("")) {
@@ -172,6 +189,10 @@ public class SignUpMenuController {
         return "";
     }
 
+    /**
+     * Method to hide/show features depending on user's type (i.e., applicant, moderator, or employer)
+     * 
+     */
     private void userIdentityOnAction() {
         if (UserIdentityChoiceBox.getValue().equals("Applicant")) {
             employerBox.setDisable(true);
@@ -189,6 +210,7 @@ public class SignUpMenuController {
     /**
      * When user clicks either the open or closed eye icon the password
      * visibility will flip.
+     * 
      */
     @FXML
     private void eyeOnAction() {
@@ -211,6 +233,11 @@ public class SignUpMenuController {
         }
     }
 
+    /**
+     * Method to check is password entered matches
+     * 
+     * @return true if passwords match, false if they do not
+     */
     @FXML
     private boolean passwordMatch() {
         String p1, p2;
@@ -228,6 +255,11 @@ public class SignUpMenuController {
         return false;
     }
 
+    /**
+     * Method to check if password field is left blank
+     * 
+     * @return notification if either password field is blank
+     */
     private boolean passwordBlank() {
         String p1, p2;
         if (passwordShowing) {
