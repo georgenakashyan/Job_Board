@@ -3,6 +3,7 @@ package com.group.job_board;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
@@ -133,7 +134,6 @@ public class FirestoreContext {
             ApiFuture<QuerySnapshot> qsnapshot = jobIDMatch.get();
             for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
                 doc.getReference().delete();
-                System.out.printf("Job posting %d has been successfully deleted.\n", jobID);
             }
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,7 +152,6 @@ public class FirestoreContext {
             ApiFuture<QuerySnapshot> qsnapshot = usernameMatch.get();
             for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
                 doc.getReference().delete();
-                System.out.printf("User %s has been successfully deleted.\n", username);
             }
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(FirestoreContext.class
@@ -245,5 +244,19 @@ public class FirestoreContext {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return positions;
+    }
+    
+    public static void changePassword(String newPass) {
+    try {
+            CollectionReference userTable = App.fStore.collection("Users");
+            Query usernameMatch = userTable.whereEqualTo("username", App.currentUser.getUsername());
+            ApiFuture<QuerySnapshot> qsnapshot = usernameMatch.get();
+            for (DocumentSnapshot doc : qsnapshot.get().getDocuments()) {
+                DocumentReference docRef = doc.getReference();
+                docRef.update("password", newPass);
+            }
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

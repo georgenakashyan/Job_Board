@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class for settings menu
@@ -17,9 +18,17 @@ public class SettingsMenuController {
     @FXML
     private TextField firstName;
     @FXML
+    private TextField firstNameMod;
+    @FXML
     private TextField lastName;
     @FXML
+    private TextField lastNameMod;
+    @FXML
+    private TextField companyName;
+    @FXML
     private TextField address;
+    @FXML
+    private TextField addressEmp;
     @FXML
     private TextField email;
     @FXML
@@ -33,17 +42,19 @@ public class SettingsMenuController {
     @FXML
     private TextField newPassword;
     @FXML
-    private Button ChangePasswordButton;
-    @FXML
-    private Button SignOutButton;
-    @FXML
-    private Button DeleteAccountButton;
-    @FXML
     private HBox postingNewJob;
     @FXML
     private HBox addNewMod;
     @FXML
     private HBox moderation;
+    
+    @FXML
+    private VBox appBox;
+    @FXML
+    private VBox empBox;
+    @FXML
+    private VBox modBox;
+    
 
     @FXML
     private Label deleteCheckLabel;
@@ -54,35 +65,57 @@ public class SettingsMenuController {
      */
     @FXML
     private void initialize() {
+        // Center info boxes for different classes
+        appBox.setDisable(true);
+        appBox.setVisible(false);
+        empBox.setDisable(true);
+        empBox.setVisible(false);
+        modBox.setDisable(true);
+        modBox.setVisible(false);
+        email.setText(App.currentUser.getEmail());
+        phoneNumber.setText(App.currentUser.getPhone());
+        userName.setText(App.currentUser.getUsername());
         deleteCheckLabel.setVisible(false);
         if (App.currentUser instanceof Applicant) {
+            // Side Bar
             postingNewJob.setDisable(true);
             postingNewJob.setVisible(false);
             addNewMod.setDisable(true);
             addNewMod.setVisible(false);
             moderation.setDisable(true);
             moderation.setVisible(false);
+            // Center Info
+            appBox.setDisable(false);
+            appBox.setVisible(true);
+            Applicant app = (Applicant)App.currentUser;
+            firstName.setText(app.getFirstName());
+            lastName.setText(app.getLastName());
+            address.setText(String.format("%s, %s, %s", app.getRoad(), app.getTown(), app.getState()));
+            accountType.setText("Applicant");
         } else if (App.currentUser instanceof Employer) {
+            // Side Bar
             addNewMod.setDisable(true);
             addNewMod.setVisible(false);
             moderation.setDisable(true);
             moderation.setVisible(false);
+            // Center Info
+            empBox.setDisable(false);
+            empBox.setVisible(true);
+            Employer emp = (Employer)App.currentUser;
+            companyName.setText(emp.getCompanyName());
+            addressEmp.setText(String.format("%s, %s, %s", emp.getRoad(), emp.getTown(), emp.getState()));  
+            accountType.setText("Employer");
         } else if (App.currentUser instanceof Moderator) {
+            // Side Bar
             postingNewJob.setDisable(true);
             postingNewJob.setVisible(false);
-        }
-
-        //Set all textfield variables to show user's current information.
-    }
-
-    @FXML
-    private void fillInInfo() {
-        if (App.currentUser instanceof Applicant) {
-            
-        } else if (App.currentUser instanceof Employer) {
-            
-        } else if (App.currentUser instanceof Moderator) {
-            
+            // Center Info
+            modBox.setDisable(false);
+            modBox.setVisible(true);
+            Moderator mod = (Moderator)App.currentUser;
+            firstNameMod.setText(mod.getFirstName());
+            lastNameMod.setText(mod.getLastName());
+            accountType.setText("Moderator");
         }
     }
 
@@ -120,7 +153,13 @@ public class SettingsMenuController {
      */
     @FXML
     private void changePassword() {
-
+        String oldPass = oldPassword.getText();
+        String newPass = newPassword.getText();
+        if (oldPass.equals(App.currentUser.getPassword())){
+            FirestoreContext.changePassword(newPass);
+            oldPassword.setText("");
+            newPassword.setText("");
+        }
     }
 
     /**

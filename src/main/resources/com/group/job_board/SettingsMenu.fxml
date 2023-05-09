@@ -150,78 +150,192 @@
          <center>
             <VBox prefHeight="500.0" prefWidth="550.0" style="-fx-background-color: #b3b3b3 #b3b3b3;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="550.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        <VBox fx:id="appBox" prefHeight="100.0" prefWidth="550.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="First Name">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="firstName" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="First Name">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="firstName" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="Last Name">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lastName" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="Address">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="address" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        </VBox>
+                        <VBox fx:id="empBox" prefHeight="130.0" prefWidth="550.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Last Name">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="lastName" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="Company">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="companyName" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="Address">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addressEmp" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                        </VBox>
+                        <VBox fx:id="modBox" prefHeight="130.0" prefWidth="550.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="550.0" text="Address">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="address" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="First Name">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="firstNameMod" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="550.0" text="Last Name">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lastNameMod" editable="false" prefHeight="26.0" prefWidth="500.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                           </padding>
-                        </HBox>
+                        </VBox>
                      </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
-                  </HBox>
+                  </AnchorPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="550.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="796.0" style="-fx-background-color: #a1a1a1;">
@@ -364,9 +478,6 @@
                      </children>
                   </HBox>
                </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
             </VBox>
          </center>
       </BorderPane>
