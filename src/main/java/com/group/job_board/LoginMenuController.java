@@ -6,6 +6,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+/**
+ * FXML controller class for the login menu
+ */
 public class LoginMenuController {
 
     private String password;
@@ -23,6 +26,9 @@ public class LoginMenuController {
     private ImageView eyeOpenIcon;
     private int numAtt = 0;
 
+    /**
+     * Initialize the scene
+     */
     @FXML
     private void initialize() {
         errorMessage.setText("");
@@ -31,6 +37,10 @@ public class LoginMenuController {
         password = "";
     }
 
+    /**
+     * Method to switch to the job posts menu screen
+     * @throws IOException
+     */
     @FXML
     private void switchJobPostingMenu() throws IOException {
         String errorCode = checkValueProblems();
@@ -50,6 +60,10 @@ public class LoginMenuController {
         }
     }
 
+    /**
+     * Method to switch to the sign up menu
+     * @throws IOException
+     */
     @FXML
     private void switchToSignUpMenu() throws IOException {
         App.setRoot("SignUpMenu");
@@ -66,7 +80,7 @@ public class LoginMenuController {
     }
 
     /**
-     *
+     * When clicked password will show
      */
     @FXML
     private void ShowPasswordOnAction() {
@@ -96,6 +110,10 @@ public class LoginMenuController {
         hidePassword.setVisible(true);
     }
     
+    /**
+     * Method to check any blank fields or errors in the login
+     * @return
+     */
     private String checkValueProblems() {
         if (email.getText().equals(""))
             return "Email was left blank";

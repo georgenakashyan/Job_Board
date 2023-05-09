@@ -77,6 +77,14 @@ public class FirestoreContext {
         }
     }
 
+    /**
+     * Method to query the database and determine if a certain user exists
+     * @param email
+     * @param username
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
     public static boolean userExists(String email, String username) throws InterruptedException, ExecutionException {
         CollectionReference userTable = App.fStore.collection("Users");
         ApiFuture<QuerySnapshot> emailSnapshot = userTable.whereEqualTo("email", email).get();
@@ -153,6 +161,11 @@ public class FirestoreContext {
         }
     }
 
+    /**
+     * Method to search the database for positions
+     * @param searchKey
+     * @return
+     */
     public static ArrayList<Position> searchJobPostings(String searchKey) {
         ArrayList<Position> positions = new ArrayList<>();
         try {
@@ -170,6 +183,12 @@ public class FirestoreContext {
         return positions;
     }
     
+    /**
+     * Method to search the database for job postings for a specific company
+     * @param companyName
+     * @param searchKey
+     * @return
+     */
     public static ArrayList<Position> searchEmployerJobPostings(String companyName, String searchKey) {
         ArrayList<Position> positions = new ArrayList<>();
         try {
@@ -188,6 +207,10 @@ public class FirestoreContext {
         return positions;
     }
     
+    /**
+     * Method to return all job postings
+     * @return
+     */
     public static ArrayList<Position> getAllJobPostings() {
         ArrayList<Position> positions = new ArrayList<>();
         try {
@@ -203,6 +226,11 @@ public class FirestoreContext {
         return positions;
     }
     
+    /**
+     * Method to return all job postings for a specific company
+     * @param companyName
+     * @return
+     */
     public static ArrayList<Position> getEmployerJobPostings(String companyName) {
         ArrayList<Position> positions = new ArrayList<>();
         try {

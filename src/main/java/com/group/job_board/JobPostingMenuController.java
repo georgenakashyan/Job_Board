@@ -9,6 +9,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+/**
+ * FXML controller class for the job posting menu
+ */
 public class JobPostingMenuController {
 
     @FXML
@@ -35,12 +38,18 @@ public class JobPostingMenuController {
     private Label paid;
     @FXML
     private Label description;
-            
+    
+    /**
+     * FXML fields for this controller
+     */
     @FXML
     private HBox moderation;
     private ObservableList<String> items;
     private ArrayList<Position> jobArr;
 
+    /**
+     * Initialize the scene and set up the list view
+     */
     @FXML
     private void initialize() {
         items = listviewJobs.getItems();
@@ -69,6 +78,9 @@ public class JobPostingMenuController {
         loadJobs();
     }
     
+    /**
+     * Method to search the job postings
+     */
     @FXML
     private void search() {
         if (items.isEmpty()) {
@@ -89,6 +101,9 @@ public class JobPostingMenuController {
         }
     }
     
+    /**
+     * Method to load jobs from the database
+     */
     private void loadJobs() {
         jobArr.clear();
         items.clear();
@@ -105,26 +120,46 @@ public class JobPostingMenuController {
         }
     }
 
+    /**
+     * Method to switch to job posting menu
+     * @throws IOException
+     */
     @FXML
     private void switchToJobPostingMenu() throws IOException {
         App.setRoot("JobPostingMenu");
     }
 
+    /**
+     * Method to switch to the settings menu
+     * @throws IOException
+     */
     @FXML
     private void switchToSettingsMenu() throws IOException {
         App.setRoot("SettingsMenu");
     }
     
+    /**
+     * Method to switch to the posting new job menu
+     * @throws IOException
+     */
     @FXML
     private void switchToPostingNewJobMenu() throws IOException {
         App.setRoot("PostingNewJobMenu");
     }
     
+    /**
+     * Method to switch to the add new moderator menu
+     * @throws IOException
+     */
     @FXML
     private void switchToAddNewModMenu() throws IOException {
         App.setRoot("AddNewModMenu");
     }
     
+    /**
+     * Method to switch to moderator menu
+     * @throws IOException
+     */
     @FXML
     private void switchToModerationMenu() throws IOException {
         App.setRoot("ModerationMenu");
