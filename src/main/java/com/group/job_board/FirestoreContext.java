@@ -246,6 +246,10 @@ public class FirestoreContext {
         return positions;
     }
     
+    /**
+     * Changes password of current user to a new password
+     * @param newPass new password to change to
+     */
     public static void changePassword(String newPass) {
     try {
             CollectionReference userTable = App.fStore.collection("Users");
