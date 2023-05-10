@@ -2,6 +2,7 @@ package com.group.job_board;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
@@ -17,6 +18,11 @@ public class ModerationMenuController {
     private HBox addNewMod;
     @FXML
     private HBox moderation;
+    
+    @FXML
+    private TextField delUserName;
+    @FXML
+    private TextField delPostID;
     
     /**
      * Method to initialize the scene
@@ -45,6 +51,18 @@ public class ModerationMenuController {
                 postingNewJob.setVisible(false);
                 break;
         }
+    }
+    
+    @FXML
+    private void deleteUser() {
+        if (!delUserName.getText().isEmpty())
+            FirestoreContext.removeUser(delUserName.getText());
+    }
+    
+    @FXML
+    private void deletePost() {
+        if (!delPostID.getText().isEmpty())
+            FirestoreContext.removeJobPosting(Integer.getInteger(delPostID.getText()));
     }
     
     /**

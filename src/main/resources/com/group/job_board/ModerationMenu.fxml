@@ -164,7 +164,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="delUserName" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -183,7 +183,7 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="217.0" text="Delete User" />
+                              <Button mnemonicParsing="false" onAction="#deleteUser" prefHeight="26.0" prefWidth="217.0" text="Delete User" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="836.0">
@@ -195,7 +195,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField editable="false" prefHeight="26.0" prefWidth="349.0" />
+                                    <TextField fx:id="delPostID" prefHeight="26.0" prefWidth="349.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
@@ -216,7 +216,7 @@
                            <children>
                               <VBox prefHeight="71.0" prefWidth="838.0" spacing="10.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="234.0" text="Add moderator" />
+                                    <Button mnemonicParsing="false" onAction="#deletePost" prefHeight="26.0" prefWidth="234.0" text="Delete Post" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
