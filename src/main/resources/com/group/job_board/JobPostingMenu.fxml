@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -166,32 +165,12 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="280.0" spacing="20.0">
+                  <HBox prefHeight="100.0" prefWidth="280.0" spacing="3.0">
                      <children>
-                        <MenuButton mnemonicParsing="false" text="State">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="5 mi" />
-                            <MenuItem mnemonicParsing="false" text="10 mi" />
-                              <MenuItem mnemonicParsing="false" text="25 mi" />
-                          </items>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </MenuButton>
-                        <MenuButton mnemonicParsing="false" text="Location">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="In-Person" />
-                              <MenuItem mnemonicParsing="false" text="Hybrid" />
-                              <MenuItem mnemonicParsing="false" text="Remote" />
-                           </items>
-                        </MenuButton>
-                        <MenuButton mnemonicParsing="false" text="Pay">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="Last 24 hrs" />
-                              <MenuItem mnemonicParsing="false" text="Last Week" />
-                              <MenuItem mnemonicParsing="false" text="Last Month" />
-                           </items>
-                        </MenuButton>
+                        <ChoiceBox fx:id="stateFilter" onMouseClicked="#filterState" prefWidth="150.0" />
+                        <ChoiceBox fx:id="placeFilter" onMouseClicked="#filterPlace" prefWidth="150.0" />
+                        <ChoiceBox fx:id="typeFilter" onMouseClicked="#filterType" prefWidth="150.0" />
+                        <ChoiceBox fx:id="payFilter" onMouseClicked="#filterPay" prefWidth="150.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
@@ -302,7 +281,7 @@
                               <Image url="@../images/PaidIcon.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="paid" prefHeight="30.0" prefWidth="113.0" text="Paid" textFill="#605d5d">
+                        <Label fx:id="paid" prefHeight="30.0" prefWidth="113.0" text="Pay" textFill="#605d5d">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
