@@ -52,6 +52,7 @@ public class JobPostingMenuController {
      */
     @FXML
     private void initialize() {
+        description.setWrapText(true);
         items = listviewJobs.getItems();
         jobArr = new ArrayList<>();
         String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
@@ -117,6 +118,22 @@ public class JobPostingMenuController {
         }
         for (Position p : jobArr) {
             items.add(String.format("Company - %s\n   Job - %s\n   $%.2f", p.getCompany(), p.getTitle(), p.getPay()));
+        }
+    }
+    
+    @FXML
+    private void handleJobClick() {
+        int selection = listviewJobs.getSelectionModel().getSelectedIndex();
+        Position p = jobArr.get(selection);
+        if (p != null) {
+            JobTitle.setText(p.getTitle());
+            companyname.setText(p.getCompany());
+            state.setText(p.getState());
+            town.setText(p.getTown());
+            road.setText(p.getStreet());
+            jobType.setText(p.getType());
+            paid.setText("$" + String.valueOf(p.getPay()));
+            description.setText(p.getDescription());
         }
     }
 
