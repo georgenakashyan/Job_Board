@@ -217,6 +217,10 @@ public class JobPostingMenuController {
             jobType.setText(p.getType());
             paid.setText("$" + String.valueOf(p.getPay()));
             description.setText(p.getDescription());
+            String s = App.currentUser.getClass().toString().replace("class com.group.job_board.", "");
+            if (s.equals("Moderator")) {
+                JobTitle.setText(JobTitle.getText() + "<ID:" + p.getJobID()+ ">");
+            }
         }
     }
 
