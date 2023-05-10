@@ -59,7 +59,7 @@ public class PostingNewJobMenuController {
      */
     @FXML
     private void initialize() {
-        jt = FXCollections.observableArrayList("Full Time", "Part Time", "Intern");
+        jt = FXCollections.observableArrayList("Full-Time", "Part-Time", "Intern");
         JobType.setItems(jt);
         wpt = FXCollections.observableArrayList("On-site", "Remote", "Hybrid");
         WorkPlaceType.setItems(wpt);
@@ -89,7 +89,16 @@ public class PostingNewJobMenuController {
     
     @FXML
     private void UploadJobButtonHandler() {
-
+        int newJobID = FirestoreContext.getNewJobID();
+        Employer emp = (Employer) App.currentUser;
+        Position p = new Position(emp.getCompanyName(), 
+                JobTitle.getText(), JobDescription.getText(), 
+                street.getText(), town.getText(), state.getText(), 
+                wpt.get(WorkPlaceType.getSelectionModel().getSelectedIndex()), 
+                jt.get(JobType.getSelectionModel().getSelectedIndex()), 
+                Double.valueOf(jobPay.getText()),
+                Integer.valueOf(spots.getText()), newJobID);
+        FirestoreContext.addJobPosting(p);
     }
 
     /**

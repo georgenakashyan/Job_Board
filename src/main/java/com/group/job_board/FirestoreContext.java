@@ -263,4 +263,21 @@ public class FirestoreContext {
             Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static int getNewJobID() {
+        int newID = -1;
+        try {
+            CollectionReference postingsTable = App.fStore.collection("JobPostings");
+            ApiFuture<QuerySnapshot> searchSnapshot = postingsTable.get();
+            List<QueryDocumentSnapshot> documents = searchSnapshot.get().getDocuments();
+            for (QueryDocumentSnapshot doc : documents) {
+                if (doc.get("jobID", Integer.TYPE) > newID) {
+                    newID = doc.get("jobID", Integer.TYPE);
+                }
+            }
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return newID+1;
+    }
 }
