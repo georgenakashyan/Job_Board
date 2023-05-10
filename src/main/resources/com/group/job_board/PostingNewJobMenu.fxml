@@ -166,7 +166,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="JobTItle" prefHeight="26.0" prefWidth="350.0" />
+                                    <TextField fx:id="JobTitle" prefHeight="26.0" prefWidth="350.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />

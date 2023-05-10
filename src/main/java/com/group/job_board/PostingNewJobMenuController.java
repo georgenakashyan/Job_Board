@@ -18,8 +18,6 @@ import javafx.scene.layout.HBox;
 public class PostingNewJobMenuController {
 
     @FXML
-    private Button UploadJob;
-    @FXML
     private TextField JobTitle;
     @FXML
     private TextField JobDescription;
@@ -39,12 +37,6 @@ public class PostingNewJobMenuController {
     private TextField street;
     @FXML
     private TextField state;
-    @FXML
-    private TextField Home;
-    @FXML
-    private TextField setting;
-    @FXML
-    private Label PostJob;
     
     @FXML
     private HBox postingNewJob;
